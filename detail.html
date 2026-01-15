@@ -10,6 +10,11 @@
     
     <!-- 2. 配置颜色主题 (Dark Academic) -->
     <script>
+     <!-- 1. 样式引擎：改用字节跳动 CDN 镜像 (飞快) -->
+    <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/tailwindcss/3.2.4/cdn.min.js"></script>
+    
+    <!-- 2. 颜色配置 (保持不变) -->
+    <script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -17,7 +22,7 @@
                         zinc: {
                             850: '#1f1f22',
                             900: '#18181b',
-                            950: '#09090b', // 极夜黑
+                            950: '#09090b',
                         },
                         amber: {
                             500: '#f59e0b',
@@ -34,8 +39,8 @@
         }
     </script>
 
-    <!-- 3. 引入图标库 Lucide -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- 3. 图标库：改用 BootCDN 镜像 (国内加速) -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/lucide/0.263.1/umd/lucide.min.js"></script>
 
     <style>
         /* 自定义滚动条 */
@@ -230,4 +235,5 @@
         lucide.createIcons();
     </script>
 </body>
+
 </html>
