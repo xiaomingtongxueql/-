@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>秦灭六国 | 溯鉴历史详情页</title>
+    
+    <!-- 1. 引入 Tailwind CSS (样式引擎) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 2. 配置颜色主题 (Dark Academic) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            850: '#1f1f22',
+                            900: '#18181b',
+                            950: '#09090b', // 极夜黑
+                        },
+                        amber: {
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            900: '#78350f',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif SC"', '"Songti SC"', 'serif'],
+                        sans: ['"PingFang SC"', '"Microsoft YaHei"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- 3. 引入图标库 Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* 自定义滚动条 */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+        
+        /* 知识图谱连线模拟 */
+        .graph-line {
+            position: absolute;
+            background: #3f3f46;
+            height: 1px;
+            transform-origin: 0 0;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-200 font-sans min-h-screen selection:bg-amber-900/30">
+
+    <!-- 导航栏 -->
+    <nav class="border-b border-zinc-800/50 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <button class="flex items-center text-zinc-400 hover:text-amber-500 transition-colors group">
+                <i data-lucide="chevron-left" class="mr-1 w-5 h-5 group-hover:-translate-x-1 transition-transform"></i>
+                <span class="font-serif tracking-widest text-sm">返回时间轴</span>
+            </button>
+            <div class="font-serif font-bold text-lg tracking-[0.2em] text-zinc-200">
+                溯鉴历史
+            </div>
+            <div class="flex gap-4">
+                <button class="text-zinc-500 hover:text-zinc-200 transition-colors"><i data-lucide="share-2" class="w-5 h-5"></i></button>
+                <button class="text-zinc-500 hover:text-amber-500 transition-colors"><i data-lucide="bookmark" class="w-5 h-5"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+            
+            <!-- 左侧核心内容 (9列) -->
+            <div class="lg:col-span-9 animate-fade-in-up">
+                
+                <!-- 视频模块 -->
+                <div class="relative w-full aspect-video rounded-sm overflow-hidden bg-zinc-900 border border-zinc-800 group cursor-pointer shadow-[inset_0_0_40px_rgba(0,0,0,0.6)]">
+                    <!-- 封面蒙版 -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-60"></div>
+                    
+                    <!-- 播放按钮 -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-16 h-16 rounded-full border border-zinc-600 bg-zinc-950/30 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 group-hover:border-amber-600/80 group-hover:text-amber-500 transition-all duration-300 shadow-2xl">
+                            <i data-lucide="play" class="ml-1 w-6 h-6 fill-current"></i>
+                        </div>
+                    </div>
+
+                    <!-- 视频信息 -->
+                    <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <span class="inline-block px-2 py-1 mb-2 text-xs font-medium tracking-wider text-amber-500 border border-amber-900/30 bg-amber-950/20 rounded-sm uppercase">
+                            纪录片 | Documentary
+                        </span>
+                        <h1 class="font-serif text-2xl md:text-3xl text-zinc-100 tracking-wide drop-shadow-md font-bold">
+                            秦并天下：帝国的诞生
+                        </h1>
+                        <p class="text-zinc-400 text-sm mt-1 font-light">
+                            时长: 14:20 • 来源: 溯鉴历史教研组
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 文章内容 -->
+                <article class="mt-12 prose prose-invert prose-lg max-w-none">
+                    <h2 class="text-3xl font-serif tracking-wider border-b border-zinc-800 pb-4 mb-8 text-zinc-200">
+                        秦灭六国与中央集权的建立
+                    </h2>
+                    
+                    <p class="text-zinc-400 leading-8 mb-6">
+                        <span class="text-5xl float-left mr-3 mt-[-6px] font-serif text-zinc-600">公</span>
+                        元前221年，秦王嬴政完成了中国历史上一次前所未有的壮举。经过十年的征战，秦军先后灭掉了韩、赵、魏、楚、燕、齐六国，结束了春秋战国以来长达五百多年的诸侯割据局面。这不仅是一次军事上的胜利，更是<strong class="text-amber-500/90 font-normal">中国政治文明形态</strong>的根本性转折。
+                    </p>
+
+                    <blockquote class="border-l-4 border-amber-900/50 bg-zinc-900/30 py-4 px-6 my-8 text-zinc-300 italic">
+                        "秦王扫六合，虎视何雄哉！挥剑决浮云，诸侯尽西来。" —— 李白
+                    </blockquote>
+
+                    <p class="text-zinc-400 leading-8 mb-6">
+                        统一之后，秦始皇面临的首要问题是如何治理这个庞大的帝国。廷尉李斯力排众议，否定了实行分封制的主张，建议全面推行<strong class="text-amber-500/90 font-normal">郡县制</strong>。这一制度将全国划分为三十六郡，郡下设县，长官由皇帝直接任免，不可世袭。这一举措标志着"官僚政治"彻底取代了"贵族政治"，中央政府对地方实现了垂直、有效的控制。
+                    </p>
+
+                    <h3 class="text-xl mt-8 mb-4 flex items-center text-zinc-200 font-serif">
+                        <span class="w-1 h-6 bg-amber-800/60 mr-3"></span>
+                        书同文，车同轨
+                    </h3>
+
+                    <p class="text-zinc-400 leading-8">
+                        为了巩固统一，秦朝在经济和文化领域也实施了一系列标准化措施。统一货币为圆形方孔钱，统一度量衡，并以小篆为标准字体统一全国文字。这些举措极大地消除了各地之间的交流障碍，促进了经济文化的融合，奠定了中华文明"大一统"的基因。尽管秦朝国祚短暂，但其确立的政治制度框架（百代都行秦政法）却延续了两千余年。
+                    </p>
+                </article>
+            </div>
+
+            <!-- 右侧边栏 (3列) -->
+            <aside class="lg:col-span-3">
+                <div class="sticky top-8 space-y-8">
+                    
+                    <!-- 模块 A: 知识图谱 (Obsidian 风格) -->
+                    <div class="bg-zinc-900/30 border border-zinc-800/60 rounded-sm overflow-hidden backdrop-blur-sm">
+                        <div class="px-4 py-3 border-b border-zinc-800/60 flex items-center justify-between bg-zinc-900/50">
+                            <h3 class="font-serif text-sm tracking-widest text-zinc-300 flex items-center">
+                                <i data-lucide="network" class="mr-2 w-4 h-4 text-amber-600"></i>
+                                知识图谱
+                            </h3>
+                            <span class="text-[10px] text-zinc-600 uppercase">Interactive</span>
+                        </div>
+                        
+                        <!-- 模拟图谱容器 -->
+                        <div class="relative h-56 w-full bg-zinc-950/50 overflow-hidden group">
+                            <!-- 连线 (用CSS模拟) -->
+                            <div class="graph-line w-full top-1/2 left-0 rotate-[20deg]"></div>
+                            <div class="graph-line w-full top-1/2 left-0 rotate-[-45deg]"></div>
+
+                            <!-- 中心节点 -->
+                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-10 cursor-pointer group/center">
+                                <div class="w-4 h-4 rounded-full bg-amber-600/80 shadow-[0_0_15px_rgba(217,119,6,0.5)] border border-amber-400 group-hover/center:scale-125 transition-transform duration-300"></div>
+                                <span class="mt-2 text-xs font-serif text-zinc-200 bg-zinc-950/80 px-2 py-0.5 rounded border border-zinc-800">秦朝</span>
+                            </div>
+
+                            <!-- 卫星节点 -->
+                            <div class="absolute top-[30%] left-[20%] flex flex-col items-center cursor-pointer group/node">
+                                <div class="w-2 h-2 rounded-full bg-zinc-600 group-hover/node:bg-zinc-400 transition-colors"></div>
+                                <span class="mt-1 text-[10px] text-zinc-500 group-hover/node:text-zinc-300">法家</span>
+                            </div>
+                            <div class="absolute top-[25%] left-[80%] flex flex-col items-center cursor-pointer group/node">
+                                <div class="w-2 h-2 rounded-full bg-zinc-600 group-hover/node:bg-zinc-400 transition-colors"></div>
+                                <span class="mt-1 text-[10px] text-zinc-500 group-hover/node:text-zinc-300">郡县制</span>
+                            </div>
+                             <div class="absolute top-[75%] left-[70%] flex flex-col items-center cursor-pointer group/node">
+                                <div class="w-2 h-2 rounded-full bg-zinc-600 group-hover/node:bg-zinc-400 transition-colors"></div>
+                                <span class="mt-1 text-[10px] text-zinc-500 group-hover/node:text-zinc-300">长城</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 模块 B: 关联事件 -->
+                    <div class="bg-zinc-900/30 border border-zinc-800/60 rounded-sm backdrop-blur-sm p-4">
+                        <h3 class="font-serif text-sm tracking-widest text-zinc-300 mb-4 flex items-center border-b border-zinc-800 pb-2">
+                            <i data-lucide="clock" class="mr-2 w-4 h-4 text-amber-600"></i>
+                            关联事件
+                        </h3>
+                        
+                        <div class="space-y-1 relative">
+                            <!-- 垂直线 -->
+                            <div class="absolute left-0 top-2 bottom-2 w-px bg-zinc-800"></div>
+
+                            <!-- 事件列表 -->
+                            <a href="#" class="group flex flex-col pl-4 py-2 border-l-2 border-transparent hover:border-amber-600 transition-all duration-300 hover:bg-zinc-800/30 hover:pl-6 rounded-r-sm relative block">
+                                <span class="text-[10px] font-mono text-zinc-500 group-hover:text-amber-500/80 transition-colors">BC 230</span>
+                                <div class="text-sm text-zinc-400 font-serif group-hover:text-zinc-200 transition-colors flex items-center justify-between w-full">
+                                    秦灭韩
+                                    <i data-lucide="arrow-right" class="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300"></i>
+                                </div>
+                            </a>
+
+                             <a href="#" class="group flex flex-col pl-4 py-2 border-l-2 border-transparent hover:border-amber-600 transition-all duration-300 hover:bg-zinc-800/30 hover:pl-6 rounded-r-sm relative block">
+                                <span class="text-[10px] font-mono text-zinc-500 group-hover:text-amber-500/80 transition-colors">BC 227</span>
+                                <div class="text-sm text-zinc-400 font-serif group-hover:text-zinc-200 transition-colors flex items-center justify-between w-full">
+                                    荆轲刺秦王
+                                </div>
+                            </a>
+
+                             <a href="#" class="group flex flex-col pl-4 py-2 border-l-2 border-transparent hover:border-amber-600 transition-all duration-300 hover:bg-zinc-800/30 hover:pl-6 rounded-r-sm relative block">
+                                <span class="text-[10px] font-mono text-zinc-500 group-hover:text-amber-500/80 transition-colors">BC 221</span>
+                                <div class="text-sm text-zinc-400 font-serif group-hover:text-zinc-200 transition-colors flex items-center justify-between w-full">
+                                    秦朝建立
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="mt-4 pt-3 border-t border-zinc-800 text-center">
+                            <button class="text-xs text-zinc-500 hover:text-amber-500 transition-colors font-serif">
+                                查看完整时间轴
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- 激活图标 -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

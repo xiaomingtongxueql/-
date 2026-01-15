@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>溯鉴历史 | 银骨金魂</title>
+    <style>
+        /* --- 1. 液态金属配色系统 (Liquid Metal Palette) --- */
+        :root {
+            /* 极夜黑底 (水) */
+            --bg-main: #050505;
+            --bg-card: #0A0A0A;
+            --bg-modal: rgba(0, 0, 0, 0.95);
+
+            /* 铂金白 (骨) */
+            --text-title: #E8E8E8;
+            --text-body: #C0C0C0;
+            --text-mute: #666666;
+
+            /* 唯一的金 (魂) */
+            --accent-gold: #D4AF37;
+            
+            /* 结构线 */
+            --line-color: #333333;
+            --border-cold: #2A2A2A;
+            --border-hover: #888888;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-body);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* --- 2. 头部：碑刻质感 --- */
+        header {
+            text-align: center;
+            padding: 100px 20px 60px;
+            border-bottom: 1px solid var(--line-color);
+            background: radial-gradient(circle at center, #111 0%, #000 100%);
+        }
+
+        h1 {
+            font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
+            color: var(--text-title);
+            font-size: 3.5em;
+            letter-spacing: 12px;
+            margin: 0;
+            font-weight: 700;
+            text-shadow: 0px 2px 0px rgba(0,0,0,1); 
+        }
+
+        .subtitle {
+            color: var(--text-mute);
+            font-size: 0.9em;
+            letter-spacing: 4px;
+            margin-top: 20px;
+            text-transform: uppercase;
+            font-family: sans-serif;
+            opacity: 0.7;
+        }
+
+        /* --- 3. 冷峻时间轴 --- */
+        .timeline-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--line-color); 
+            z-index: 0;
+        }
+
+        .dynasty-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 80px;
+        }
+
+        .dynasty-dot {
+            position: absolute;
+            left: 44px;
+            top: 30px;
+            width: 13px;
+            height: 13px;
+            background-color: #444;
+            border-radius: 50%;
+            z-index: 2;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 0 4px var(--bg-main);
+        }
+
+        .dynasty-item:hover .dynasty-dot {
+            background-color: #FFF;
+            transform: scale(1.2);
+        }
+
+        .dynasty-item.active .dynasty-dot {
+            background-color: var(--bg-main);
+            border: 3px solid var(--accent-gold);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            transform: scale(1.4);
+        }
+        .dynasty-item.active .dynasty-dot::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 4px; height: 4px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+        }
+
+        /* --- 4. 卡片：手术刀切割感 --- */
+        .dynasty-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-cold);
+            border-radius: 2px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .dynasty-card:hover {
+            border-color: var(--border-hover); 
+            background: #111;
+        }
+        
+        .dynasty-item.active .dynasty-card {
+            border-left: 3px solid var(--accent-gold);
+            border-color: var(--border-cold);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .dynasty-name {
+            font-family: "Noto Serif SC", "Songti SC", serif;
+            font-size: 1.8em;
+            color: var(--text-title);
+            font-weight: bold;
+        }
+
+        .dynasty-year {
+            font-family: 'Times New Roman', serif;
+            color: var(--text-mute);
+            font-size: 1.1em;
+            font-style: italic;
+        }
+
+        /* 详情区域 */
+        .card-details {
+            display: none;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            animation: slideDown 0.4s ease;
+        }
+        
+        .dynasty-item.active .card-details { display: block; }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .summary-text {
+            color: var(--text-body);
+            line-height: 1.8;
+            margin-bottom: 25px;
+            text-align: justify;
+            font-weight: 300;
+        }
+
+        /* 事件按钮 */
+        .event-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .event-btn {
+            background: transparent;
+            border: 1px solid #444;
+            color: var(--text-mute);
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 0;
+            font-size: 0.85em;
+            transition: 0.2s;
+            font-family: sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .event-btn:hover {
+            border-color: var(--text-title);
+            color: var(--text-title);
+            background: #222;
+        }
+
+        /* --- 5. 弹窗 --- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #0F0F0F;
+            width: 80%;
+            max-width: 650px;
+            padding: 50px;
+            border: 1px solid #333;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px; right: 25px;
+            font-size: 2em;
+            color: #444;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .close-btn:hover { color: #FFF; }
+
+        #modalTitle { 
+            font-family: "Noto Serif SC", serif;
+            color: var(--text-title); 
+            font-size: 2em;
+            margin-top: 0; 
+            border-bottom: 1px solid #222; 
+            padding-bottom: 20px; 
+            margin-bottom: 25px;
+        }
+        
+        #modalText { 
+            white-space: pre-wrap; 
+            color: #BBB; 
+            line-height: 2; 
+            font-size: 1.05em;
+            font-weight: 300;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>溯鉴历史</h1>
+        <p class="subtitle">CHRONICLES OF CHINA</p>
+    </header>
+
+    <div class="timeline-container" id="timeline-content">
+        <!-- JS 生成区域 -->
+    </div>
+
+    <!-- 弹窗 -->
+    <div class="modal-overlay" id="eventModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">标题</h2>
+            <div id="modalText">内容</div>
+        </div>
+    </div>
+
+    <script>
+        // --- 完整数据 (Qin to Qing) ---
+        const historyData = [
+            {
+                name: "秦朝",
+                year: "BC 221 - BC 207",
+                // 【关键】：这里设置了传送门
+                link: "detail.html",
+                summary: "中国历史上第一个统一的、多民族的中央集权制封建国家。秦王嬴政横扫六国，结束了诸侯割据。它确立的皇帝制度、三公九卿制以及郡县制，奠定了中国两千余年政治制度的基本格局。",
+                events: [
+                    { title: "皇帝制度确立", content: "秦王嬴政认为自己'德兼三皇，功过五帝'，自称始皇帝。确立了皇权至上、皇位世袭、皇帝独尊的核心原则。" },
+                    { title: "郡县制推广", content: "李斯力排众议，废除分封，推行郡县制。全国分为36郡，长官由皇帝直接任免，标志着官僚政治取代贵族政治。" },
+                    { title: "焚书坑儒", content: "为了加强思想控制，秦始皇采纳李斯建议，烧毁民间藏书，并坑杀儒生方士。严重摧残了先秦文化。" }
+                ]
+            },
+            {
+                name: "西汉",
+                year: "BC 202 - AD 9",
+                summary: "西汉初期休养生息，出现文景之治。汉武帝时期，在政治、经济、思想、军事上全面巩固了大一统，使西汉进入鼎盛。丝绸之路的开辟促进了东西方交流。",
+                events: [
+                    { title: "推恩令", content: "汉武帝采纳主父偃建议，允许诸侯王将封地分给子弟，使王国越分越小，兵不血刃地解决了王国威胁。" },
+                    { title: "独尊儒术", content: "采纳董仲舒建议，'罢黜百家，独尊儒术'。儒学从此成为中国封建社会的正统思想，实现了思想上的大一统。" },
+                    { title: "张骞通西域", content: "张骞两次出使西域，开辟了丝绸之路，加强了西汉对西域的管辖，设立西域都护府，标志着新疆地区正式归属中央。" }
+                ]
+            },
+            {
+                name: "东汉",
+                year: "25 - 220",
+                summary: "光武帝刘秀重建汉朝，史称'光武中兴'。东汉豪强地主势力发展迅速，庄园经济盛行。中后期呈现外戚与宦官交替专权的局面，政治腐朽，最终爆发黄巾起义。",
+                events: [
+                    { title: "光武中兴", content: "刘秀采取柔道治国，释放奴婢，减轻赋税，整顿吏治，不仅恢复了汉朝的统治，还使得社会经济得到极大恢复。" },
+                    { title: "党锢之祸", content: "东汉后期，士大夫与太学生结成'党人'抨击宦官乱政，遭到宦官集团的残酷镇压，严重削弱了汉朝的统治基础。" },
+                    { title: "黄巾起义", content: "184年，张角利用'太平道'发动起义。虽然被镇压，但冲击了东汉政权，使其名存实亡，地方割据局面形成。" }
+                ]
+            },
+            {
+                name: "魏晋南北朝",
+                year: "220 - 589",
+                summary: "国家分裂与民族大融合时期。虽然政权更迭频繁，但士族门阀政治发展到了顶峰。北民南迁促进了江南的开发，缩小了南北经济差距。胡汉融合为隋唐大一统奠定了基础。",
+                events: [
+                    { title: "九品中正制", content: "魏文帝曹丕采纳陈群建议设立。初期重视家世与才能，后期完全被世家大族垄断，造成'上品无寒门，下品无势族'的门阀局面。" },
+                    { title: "北魏孝文帝改革", content: "北魏孝文帝拓跋宏推行汉化政策：迁都洛阳、穿汉服、说汉语、改汉姓。极大地促进了北方的民族融合。" },
+                    { title: "江南开发", content: "由于北方战乱，大量中原人口南迁，带去了先进的生产工具和技术，使江南地区经济得到迅速发展，经济重心开始南移。" }
+                ]
+            },
+            {
+                name: "隋朝",
+                year: "581 - 618",
+                summary: "承上启下的短命王朝。隋文帝结束了数百年的分裂局面。隋炀帝虽然暴政亡国，但他开创的科举制和大运河，成为了造福后世千年的政治与经济遗产。",
+                events: [
+                    { title: "开创科举制", content: "隋炀帝设立进士科，标志着科举制的正式诞生。打破了世家大族对官场的垄断，将选官权收归中央，促进了社会阶层流动。" },
+                    { title: "开通大运河", content: "以洛阳为中心，北抵涿郡，南至余杭。沟通了海河、黄河、淮河、长江、钱塘江五大水系，成为南北交通的大动脉。" },
+                    { title: "三省六部制", content: "确立了中书、门下、尚书三省及六部的行政体制，分割相权，加强皇权，提高了行政效率。" }
+                ]
+            },
+            {
+                name: "唐朝",
+                year: "618 - 907",
+                summary: "中国封建社会的繁荣巅峰。贞观之治开启盛世，开元盛世达到顶峰。政治清明，文化开放，万邦来朝。安史之乱后由盛转衰，陷入藩镇割据。",
+                events: [
+                    { title: "贞观之治", content: "唐太宗吸取隋亡教训，知人善任，完善三省六部制，推行租庸调制，开创了政治清明的治世局面。" },
+                    { title: "安史之乱", content: "755年安禄山起兵叛乱，历时八年平定。导致唐朝由盛转衰，形成了藩镇割据局面，北方经济严重受损。" },
+                    { title: "两税法", content: "780年宰相杨炎建议实施。改变了以人丁为主的征税标准，改为以资产为宗，是一次赋税制度的重大变革。" }
+                ]
+            },
+            {
+                name: "宋朝",
+                year: "960 - 1279",
+                summary: "重文轻武的时代。虽然军事上长期积弱，但经济、文化、科技高度发达。经济重心南移完成，商业革命突破了时间和空间的限制。理学兴起，儒学完成哲学化重建。",
+                events: [
+                    { title: "加强中央集权", content: "宋太祖赵匡胤通过'杯酒释兵权'收回兵权。设参知政事、枢密使、三司使分割宰相的行政、军事、财政大权，彻底解决了藩镇割据问题。" },
+                    { title: "王安石变法", content: "为了解决'积贫积弱'的局面，宋神宗任用王安石变法（青苗法、募役法等）。在一定程度上增加了政府收入，但因用人失当和触犯大官僚利益而失败。" },
+                    { title: "理学兴起", content: "程颢、程颐和朱熹将儒学发展为理学，提出'存天理，灭人欲'。朱熹的《四书章句集注》成为后世科举考试的教科书。" }
+                ]
+            },
+            {
+                name: "元朝",
+                year: "1271 - 1368",
+                summary: "少数民族建立的大一统王朝，版图空前辽阔。创立行省制度，对后世影响深远。但也推行带有民族歧视色彩的'四等人制'，导致社会矛盾尖锐。",
+                events: [
+                    { title: "行省制度", content: "在中央设中书省，地方设行中书省（简称行省）。是中国省制的开端，极大加强了中央对辽阔疆域的管辖。" },
+                    { title: "宣政院", content: "中央设立宣政院，专门管理全国佛教事务和西藏地区军政事务。标志着西藏正式成为中央政府直接管辖的行政区。" },
+                    { title: "四等人制", content: "依次为蒙古人、色目人、汉人、南人。这种民族歧视政策激化了社会矛盾，加速了元朝的灭亡。" }
+                ]
+            },
+            {
+                name: "明朝",
+                year: "1368 - 1644",
+                summary: "君主专制空前强化的时期。废除丞相，设立内阁。商品经济活跃，江南地区出现资本主义萌芽。对外关系上，既有郑和下西洋的壮举，也开始实施海禁。",
+                events: [
+                    { title: "废丞相设内阁", content: "朱元璋废除延续一千多年的丞相制度，六部直接对皇帝负责。明成祖时正式设立内阁，作为皇帝的侍从顾问机构，君主专制进一步加强。" },
+                    { title: "郑和下西洋", content: "郑和七次下西洋，访问亚非30多个国家和地区。是世界航海史上的壮举，加强了中国与亚非各国的友好往来。" },
+                    { title: "一条鞭法", content: "张居正改革赋税制度，将田赋、徭役和杂税合并，一律折算成银两征收。适应了商品经济的发展，推动了农产品的商品化。" }
+                ]
+            },
+            {
+                name: "清朝(前期)",
+                year: "1644 - 1840",
+                summary: "中国封建社会的晚期。康乾盛世奠定了现代中国的版图。政治上，军机处的设立标志着君主专制达到顶峰。经济上，人口激增。对外实行闭关锁国，逐渐落后于世界工业文明潮流。",
+                events: [
+                    { title: "军机处设立", content: "雍正帝设立军机处，由亲信官员组成，跪受笔录，上传下达。标志着君主专制制度发展到了顶峰。" },
+                    { title: "摊丁入亩", content: "雍正时期将丁税平均摊入田赋中，征收统一的地丁银。彻底废除了人头税，国家对农民的人身控制进一步松弛，促进了人口激增。" },
+                    { title: "闭关锁国", content: "清政府严格限制（非完全禁止）对外贸易，只开广州一处作为通商口岸（十三行）。虽然起到了一定的自卫作用，但阻碍了中外交流，使中国错失了工业革命的机遇。" }
+                ]
+            }
+        ];
+
+        // --- 渲染引擎 ---
+        const timelineContainer = document.getElementById('timeline-content');
+        const modal = document.getElementById('eventModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalText = document.getElementById('modalText');
+
+        function render() {
+            timelineContainer.innerHTML = '';
+            historyData.forEach((dynasty, index) => {
+                const item = document.createElement('div');
+                item.className = 'dynasty-item';
+                
+                item.onclick = (e) => {
+                    // 防止点击按钮时折叠
+                    if(e.target.tagName === 'BUTTON' || e.target.tagName === 'A') return;
+                    
+                    const isActive = item.classList.contains('active');
+                    document.querySelectorAll('.dynasty-item').forEach(d => d.classList.remove('active'));
+                    if(!isActive) item.classList.add('active');
+                };
+
+                let eventButtons = '';
+                if(dynasty.events) {
+                    eventButtons = dynasty.events.map((evt, i) => {
+                        return `<button class="event-btn" onclick="openEvent(${index}, ${i})">${evt.title}</button>`;
+                    }).join('');
+                }
+
+                // 核心：如果有 link，就生成金色按钮
+                let linkButton = '';
+                if(dynasty.link) {
+                    linkButton = `
+                        <div style="margin-top: 25px; padding-top: 20px; border-top: 1px dashed #333; text-align: right;">
+                            <a href="${dynasty.link}" target="_blank" 
+                               style="
+                                   display: inline-block;
+                                   background-color: var(--accent-gold);
+                                   color: #000;
+                                   padding: 10px 24px;
+                                   text-decoration: none;
+                                   font-weight: bold;
+                                   font-size: 0.9em;
+                                   border-radius: 0;
+                                   transition: all 0.2s;
+                                   letter-spacing: 1px;
+                               "
+                               onmouseover="this.style.backgroundColor='#fff'"
+                               onmouseout="this.style.backgroundColor='#D4AF37'"
+                            >
+                                进入图谱 →
+                            </a>
+                        </div>
+                    `;
+                }
+
+                item.innerHTML = `
+                    <div class="dynasty-dot"></div>
+                    <div class="dynasty-card">
+                        <div class="card-header">
+                            <span class="dynasty-name">${dynasty.name}</span>
+                            <span class="dynasty-year">${dynasty.year}</span>
+                        </div>
+                        <div class="card-details">
+                            <div class="summary-text">${dynasty.summary}</div>
+                            <div style="margin-bottom:12px; color:#666; font-size:0.85em; text-transform:uppercase; letter-spacing:1px;">Key Events</div>
+                            <div class="event-grid">
+                                ${eventButtons}
+                            </div>
+                            ${linkButton}
+                        </div>
+                    </div>
+                `;
+                timelineContainer.appendChild(item);
+            });
+        }
+
+        window.openEvent = function(dIdx, eIdx) {
+            const evt = historyData[dIdx].events[eIdx];
+            modalTitle.innerText = evt.title;
+            modalText.innerText = evt.content;
+            modal.style.display = 'flex';
+        };
+
+        window.closeModal = function() {
+            modal.style.display = 'none';
+        };
+
+        modal.onclick = function(e) {
+            if (e.target === modal) closeModal();
+        };
+
+        // 按 ESC 关闭
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        render();
+    </script>
+</body>
+</html>
