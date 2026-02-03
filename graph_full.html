@@ -5,9 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>历史全览图谱 | Galaxy View</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        // Global Error Handler for Mobile Debugging
+        window.onerror = function (msg, url, line, col, error) {
+            var errorMsg = "JS Error: " + msg + "\nURL: " + url + "\nLine: " + line;
+            // Create a visible error box
+            var div = document.createElement("div");
+            div.style.cssText = "position:fixed; top:0; left:0; width:100%; height:auto; background:red; color:white; padding:10px; z-index:9999; font-size:12px; white-space:pre-wrap; word-break:break-all;";
+            div.innerText = "【程序崩溃】请截图发给开发人员:\n" + errorMsg;
+            document.body.appendChild(div);
+            return false;
+        };
+    </script>
+    <script src="https://cdn.staticfile.org/tailwindcss/3.3.3/tailwind.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
     <script src="js/data-store.js"></script> <!-- Data Source -->
     <script>
         tailwind.config = {
@@ -416,6 +428,27 @@
 <body>
 
     <!-- Navigation -->
+
+    <!-- Loading Mask -->
+    <div id="loading-mask"
+        style="position:fixed; top:0; left:0; width:100%; height:100%; background:#F5F5F7; z-index:999; display:flex; flex-direction:column; align-items:center; justify-content:center; transition: opacity 0.5s;">
+        <div
+            style="width: 40px; height: 40px; border: 4px solid #E5E5E5; border-top: 4px solid #BF9B30; border-radius: 50%; animation: spin 1s linear infinite;">
+        </div>
+        <p style="margin-top:20px; color:#86868B; font-size:14px; font-weight:500;">正在加载历史图谱...</p>
+    </div>
+    <style>
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
     <a href="index.html" class="back-btn">
         <i data-lucide="arrow-left" class="w-4 h-4"></i>
         <span>返回</span>
@@ -749,6 +782,16 @@
                 .force("collide", d3.forceCollide().radius(d => d.r + 15).strength(1)) // More breathing room
                 .force("x", d3.forceX(d => d.cat === 'china' ? width * 0.35 : width * 0.65).strength(0.15))
                 .force("y", d3.forceY(height / 2).strength(0.12)); // 0.15 * 0.8 = 0.12
+
+            // Remove Loading Mask
+            setTimeout(() => {
+                const mask = document.getElementById('loading-mask');
+                if (mask) {
+                    mask.style.opacity = '0';
+                    setTimeout(() => mask.remove(), 500);
+                }
+            }, 800);
+
 
             // 4. Drawing
 
