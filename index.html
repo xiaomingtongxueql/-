@@ -446,6 +446,15 @@
             border-color: rgba(255, 255, 255, 0.3);
         }
 
+        /* Remove focus outline on card links */
+        a.event-row:focus {
+            outline: none;
+        }
+
+        a.event-row:focus .pebble-card {
+            box-shadow: var(--card-shadow-hover);
+        }
+
         .card-year {
             font-family: 'Inter', sans-serif;
             font-size: 1.1rem;
@@ -1068,4 +1077,3 @@
 </body>
 
 </html>
-
