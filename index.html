@@ -540,25 +540,37 @@
 
             /* Mobile Contrast View: Single Column */
             .event-row.align-left,
-            .event-row.align-right {
+            .event-row.align-right,
+            .event-row.align-center {
                 justify-content: center;
                 padding-left: 0;
                 padding-right: 0;
+                width: 100%;
+                /* Ensure full width */
             }
 
             .timeline-container {
-                padding: 0 16px 120px;
+                padding: 0 12px 120px;
+                /* Squeeze padding slightly to give more room for cards */
             }
 
             .pebble-card {
-                padding: 16px 20px;
-                /* More compact on mobile */
+                padding: 16px 16px;
                 max-width: 100%;
+                width: 100%;
+                /* Force width */
             }
 
             .card-title {
-                font-size: 1.5rem;
-                /* Slightly smaller title on mobile */
+                font-size: 1.35rem;
+                /* Better fit for small screens */
+            }
+
+            /* Compact Segment Control for Mobile */
+            .segment-btn {
+                padding: 8px 16px;
+                /* Reduced from 10px 24px */
+                font-size: 0.8rem;
             }
         }
 
@@ -981,10 +993,18 @@
                         const era = event.year < 0 ? 'BC' : 'AD';
                         const displayYear = event.display || (era + ' ' + year);
                         const link = event.link || '#';
+                        const isClickable = link !== '#';
 
+                        // 使用 a 标签替代 div，提升移动端兼容性和语义化
+                        // 添加 block w-full no-underline 确保样式正确
+                        // 添加 id 以支持锚点跳转 (e.g. index.html#event-qin)
                         html += `
-                        <div class="event-row ${alignClass}" style="animation-delay: ${index * 0.05}s" onclick="saveScrollAndNavigate('${link}')">
-                            <div class="pebble-card">
+                        <a href="${link}" 
+                           id="event-${event.id}"
+                           class="event-row ${alignClass} block w-full no-underline text-inherit group" 
+                           style="animation-delay: ${index * 0.05}s; cursor: ${isClickable ? 'pointer' : 'default'}"
+                           onclick="${isClickable ? `saveScrollAndNavigate(event, '${link}')` : 'return false;'}">
+                            <div class="pebble-card group-active:scale-95 transition-transform duration-200">
                                 <div class="card-year">
                                     ${year}<span class="era">${era}</span>
                                 </div>
@@ -994,7 +1014,7 @@
                                 </div>
                                 <div class="card-desc">${event.desc}</div>
                             </div>
-                        </div>
+                        </a>
                     `;
                     });
 
@@ -1015,10 +1035,16 @@
                 render();
 
                 // 保存滚动位置并导航
-                window.saveScrollAndNavigate = function (link) {
+                window.saveScrollAndNavigate = function (event, link) {
                     if (link && link !== '#') {
                         sessionStorage.setItem('chronos_scroll_position', window.scrollY);
-                        window.location.href = link;
+                        // 不再强制 window.location.href，让 a 标签自然跳转
+                        // 这样可以保留长按打开新标签页等原生功能
+                        // 如果需要强制，可以使用:
+                        // event.preventDefault();
+                        // window.location.href = link;
+                    } else {
+                        event.preventDefault(); // 阻止 # 的跳转
                     }
                 };
 
