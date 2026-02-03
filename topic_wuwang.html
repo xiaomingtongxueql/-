@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"西周","url":"detail_zhou.html"},{"text":"牧野之战","url":"topic_zhou_king.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"wu_king","label":"周武王","val":30,"group":"core","url":"topic_wuwang.html"},{"id":"jiang_ziya","label":"姜子牙","val":20,"group":"person","url":"detail_zhou.html"},{"id":"muye_bat","label":"牧野之战","val":25,"group":"event","url":"topic_zhou_king.html"}],"edges":[{"source":"wu_king","target":"jiang_ziya","label":"任用"},{"source":"wu_king","target":"muye_bat","label":"指挥"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

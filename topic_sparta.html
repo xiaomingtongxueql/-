@@ -153,7 +153,7 @@
     <script id="data-keywords" type="application/json">[{"text":"雅典民主","url":"topic_athens_democracy.html"},{"text":"古希腊","url":"detail_greece.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"sparta_city","label":"斯巴达","val":30,"group":"core","url":"topic_sparta.html"},{"id":"soldier","label":"斯巴达勇士","val":20,"group":"class","url":"topic_sparta.html"},{"id":"helots","label":"希洛人","val":15,"group":"class","url":"topic_sparta.html"}],"edges":[{"source":"sparta_city","target":"soldier","label":"培养"},{"source":"sparta_city","target":"helots","label":"镇压"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

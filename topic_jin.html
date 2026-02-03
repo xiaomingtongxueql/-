@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"司马懿","url":"topic_sima.html"},{"text":"三国","url":"detail_three_kingdoms.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"western_jin","label":"西晋","val":30,"group":"core","url":"topic_jin.html"},{"id":"unification_280","label":"太康之治","val":25,"group":"era","url":"topic_jin.html"},{"id":"eight_kings","label":"八王之乱","val":20,"group":"event","url":"topic_jin.html"}],"edges":[{"source":"western_jin","target":"unification_280","label":"开创"},{"source":"western_jin","target":"eight_kings","label":"崩溃"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

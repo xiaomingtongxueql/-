@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"元朝","url":"detail_yuan.html"},{"text":"商业革命","url":"topic_commerce.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"guan","label":"关汉卿","val":30,"group":"core","url":"topic_guanhanqing.html"},{"id":"doue","label":"窦娥冤","val":25,"group":"book","url":"topic_guanhanqing.html"},{"id":"zaju","label":"元杂剧","val":25,"group":"style","url":"topic_guanhanqing.html"},{"id":"tongwandou","label":"铜豌豆","val":20,"group":"concept","url":"topic_guanhanqing.html"}],"edges":[{"source":"guan","target":"doue","label":"创作"},{"source":"guan","target":"zaju","label":"代表"},{"source":"guan","target":"tongwandou","label":"自喻"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

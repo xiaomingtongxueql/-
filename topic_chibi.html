@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"曹操","url":"topic_caocao.html"},{"text":"孙权","url":"topic_sunquan.html"},{"text":"诸葛亮","url":"topic_zhuge.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"red_cliffs_battle","label":"赤壁之战","val":30,"group":"core","url":"topic_chibi.html"},{"id":"sun_liu_alliance","label":"孙刘联盟","val":25,"group":"tactic","url":"topic_chibi.html"},{"id":"fire_attack","label":"火攻","val":20,"group":"tactic","url":"topic_chibi.html"}],"edges":[{"source":"sun_liu_alliance","target":"red_cliffs_battle","label":"赢得"},{"source":"fire_attack","target":"red_cliffs_battle","label":"决定"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

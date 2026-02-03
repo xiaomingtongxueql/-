@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"百家争鸣","url":"topic_baijia.html"},{"text":"孔子","url":"topic_confucius.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"laozi_master","label":"老子","val":30,"group":"core","url":"topic_laozi.html"},{"id":"dao_concept","label":"道","val":20,"group":"concept","url":"topic_laozi.html"},{"id":"daodejing","label":"道德经","val":20,"group":"book","url":"topic_laozi.html"},{"id":"wuwei_gov","label":"无为而治","val":20,"group":"concept","url":"topic_laozi.html"}],"edges":[{"source":"laozi_master","target":"dao_concept","label":"提出"},{"source":"laozi_master","target":"daodejing","label":"著作"},{"source":"laozi_master","target":"wuwei_gov","label":"主张"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

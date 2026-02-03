@@ -195,7 +195,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"stone_cn","label":"打制石器","val":30,"group":"core","url":"#"},{"id":"quartz","label":"脉石英","val":25,"group":"material","url":"#"},{"id":"bipolar","label":"砸击法","val":20,"group":"tech","url":"#"},{"id":"peking","label":"北京人","val":25,"group":"user","url":"detail_primitive.html"}],"edges":[{"source":"peking","target":"stone_cn","label":"制造"},{"source":"quartz","target":"stone_cn","label":"原料"},{"source":"bipolar","target":"stone_cn","label":"核心技术"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

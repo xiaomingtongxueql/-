@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -76,7 +76,7 @@
         type="application/json">{"nodes":[{"id":"mul","label":"多极化","x":50,"y":50,"type":"core"},{"id":"eu","label":"欧盟","x":20,"y":30,"type":"normal"},{"id":"cn","label":"中国崛起","x":80,"y":30,"type":"normal"},{"id":"un","label":"联合国/多边机制","x":50,"y":80,"type":"sub"}],"edges":[{"source":"mul","target":"eu"},{"source":"mul","target":"cn"},{"source":"mul","target":"un"}]}</script>
     <script>
         window.onload = () => {
-            lucide.createIcons();
+            if (typeof lucide !== 'undefined') { lucide.createIcons(); }
             if (typeof KnowledgeGraphEngine !== 'undefined') {
                 new KnowledgeGraphEngine('knowledge-graph', { lineColor: '#0969DA' }).render(JSON.parse(document.getElementById('data-graph').textContent));
             }

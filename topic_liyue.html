@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"周公","url":"topic_zhougong.html"},{"text":"西周","url":"detail_zhou.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"liyue_sys","label":"礼乐制度","val":30,"group":"core","url":"topic_liyue.html"},{"id":"li","label":"礼","val":20,"group":"concept","url":"topic_liyue.html"},{"id":"yue","label":"乐","val":20,"group":"concept","url":"topic_liyue.html"}],"edges":[{"source":"liyue_sys","target":"li","label":"别异"},{"source":"liyue_sys","target":"yue","label":"和同"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

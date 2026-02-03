@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"隋文帝","url":"topic_suiwendi.html"},{"text":"隋朝","url":"detail_sui.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"sansheng","label":"三省六部","val":30,"group":"core","url":"topic_sansheng.html"},{"id":"zhongshu","label":"中书省","val":20,"group":"dept","url":"topic_sansheng.html"},{"id":"menxia","label":"门下省","val":20,"group":"dept","url":"topic_sansheng.html"},{"id":"shangshu","label":"尚书省","val":20,"group":"dept","url":"topic_sansheng.html"}],"edges":[{"source":"sansheng","target":"zhongshu","label":"包含"},{"source":"zhongshu","target":"menxia","label":"草拟后审核"},{"source":"menxia","target":"shangshu","label":"审核后执行"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

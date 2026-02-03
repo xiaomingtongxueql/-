@@ -165,7 +165,7 @@
     <script id="data-keywords" type="application/json">[{"text":"唐朝","url":"detail_tang.html"},{"text":"贞观之治","url":"topic_lishimin.html"},{"text":"三省六部","url":"topic_sansheng.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"taizong","label":"唐太宗","val":30,"group":"core","url":"topic_lishimin.html"},{"id":"weizheng","label":"魏征","val":25,"group":"person","url":"topic_lishimin.html"},{"id":"tiankehan","label":"天可汗","val":25,"group":"title","url":"topic_lishimin.html"},{"id":"fangdu","label":"房谋杜断","val":20,"group":"person","url":"topic_lishimin.html"}],"edges":[{"source":"taizong","target":"weizheng","label":"纳谏"},{"source":"taizong","target":"tiankehan","label":"尊号"},{"source":"taizong","target":"fangdu","label":"任用"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -201,3 +201,4 @@
 </body>
 
 </html>
+

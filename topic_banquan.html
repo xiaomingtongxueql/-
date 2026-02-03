@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"炎黄传说","url":"detail_legends.html"},{"text":"人文初祖","url":"topic_ancestor.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"war_core","label":"部落战争","val":30,"group":"core","url":"topic_banquan.html"},{"id":"chiyou","label":"蚩尤","val":25,"group":"person","url":"topic_chiyou.html"},{"id":"huangdi_war","label":"黄帝","val":25,"group":"person","url":"topic_ancestor.html"}],"edges":[{"source":"huangdi_war","target":"chiyou","label":"战胜"},{"source":"chiyou","target":"war_core","label":"参战"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

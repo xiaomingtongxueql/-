@@ -176,7 +176,7 @@
     <script id="data-keywords" type="application/json">[{"text":"农业革命","url":"detail_agrarian.html"},{"text":"文字起源","url":"topic_writing.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"state_topic","label":"国家起源","val":30,"group":"core","url":"topic_state_origin.html"},{"id":"surplus","label":"剩余产品","val":25,"group":"econ","url":"topic_surplus.html"},{"id":"writing","label":"文字","val":20,"group":"tech","url":"topic_writing.html"},{"id":"wittfogel","label":"魏特夫","val":15,"group":"person","url":"topic_wittfogel.html"}],"edges":[{"source":"surplus","target":"state_topic","label":"物质基础"},{"source":"state_topic","target":"writing","label":"统治工具"},{"source":"wittfogel","target":"state_topic","label":"水利假说"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -198,3 +198,4 @@
 </body>
 
 </html>
+

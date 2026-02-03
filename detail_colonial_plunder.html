@@ -198,7 +198,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"plunder","label":"殖民掠夺","val":30,"group":"core","url":"detail_colonial_plunder.html"},{"id":"spain","label":"西班牙","val":20,"group":"country","url":"topic_spain_empire.html"},{"id":"uk","label":"英国","val":20,"group":"country","url":"topic_british_empire.html"},{"id":"triangle","label":"三角贸易","val":25,"group":"event","url":"topic_triangular_trade.html"},{"id":"slave","label":"黑奴贸易","val":20,"group":"event","url":"topic_slave_trade.html"},{"id":"capital","label":"资本原始积累","val":20,"group":"impact","url":"topic_capital_accumulation.html"},{"id":"disaster","label":"殖民地灾难","val":15,"group":"impact","url":"topic_colonial_disaster.html"}],"edges":[{"source":"spain","target":"plunder","label":"开启"},{"source":"uk","target":"plunder","label":"巅峰"},{"source":"plunder","target":"triangle","label":"形式"},{"source":"triangle","target":"slave","label":"核心"},{"source":"plunder","target":"capital","label":"对欧洲"},{"source":"plunder","target":"disaster","label":"对殖民地"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -220,3 +220,4 @@
 </body>
 
 </html>
+

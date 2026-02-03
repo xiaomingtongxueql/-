@@ -260,7 +260,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"human","label":"人类起源","val":30,"group":"core","url":"detail_primitive_world.html"},{"id":"lucy","label":"露西","val":25,"group":"person","url":"topic_lucy.html"},{"id":"neander","label":"尼安德特人","val":25,"group":"species","url":"topic_neanderthal.html"},{"id":"cognitive","label":"认知革命","val":25,"group":"event","url":"topic_cognitive_rev.html"},{"id":"tool","label":"石器工具","val":20,"group":"skill","url":"topic_stone_tools.html"},{"id":"fire","label":"火的使用","val":20,"group":"skill","url":"topic_fire.html"}],"edges":[{"source":"lucy","target":"human","label":"早期代表"},{"source":"neander","target":"human","label":"及灭绝亲属"},{"source":"human","target":"cognitive","label":"关键转折"},{"source":"human","target":"tool","label":"技术特征"},{"source":"human","target":"fire","label":"生存手段"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

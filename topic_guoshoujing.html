@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"元朝","url":"detail_yuan.html"},{"text":"忽必烈","url":"topic_kublai.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"guo","label":"郭守敬","val":30,"group":"core","url":"topic_guoshoujing.html"},{"id":"shoushi","label":"授时历","val":25,"group":"book","url":"topic_guoshoujing.html"},{"id":"jianyi","label":"简仪","val":25,"group":"object","url":"topic_guoshoujing.html"},{"id":"tonghui","label":"通惠河","val":20,"group":"place","url":"topic_guoshoujing.html"}],"edges":[{"source":"guo","target":"shoushi","label":"编制"},{"source":"guo","target":"jianyi","label":"发明"},{"source":"guo","target":"tonghui","label":"开凿"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

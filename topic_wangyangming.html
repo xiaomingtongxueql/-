@@ -206,7 +206,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"wang","label":"王阳明","val":35,"group":"core","url":"topic_wangyangming.html"},{"id":"xinxue","label":"心学","val":30,"group":"thought","url":"topic_xinxue.html"},{"id":"longchang","label":"龙场悟道","val":20,"group":"event","url":"topic_longchang.html"},{"id":"zhuxing","label":"知行合一","val":25,"group":"concept","url":"topic_zhixingheyi.html"},{"id":"zhuxiz","label":"朱熹","val":15,"group":"person","url":"topic_lixue.html"},{"id":"lizhi","label":"李贽","val":15,"group":"person","url":"topic_lizhi.html"}],"edges":[{"source":"wang","target":"xinxue","label":"创立"},{"source":"wang","target":"longchang","label":"顿悟"},{"source":"wang","target":"zhuxing","label":"提出"},{"source":"wang","target":"zhuxiz","label":"批判"},{"source":"xinxue","target":"lizhi","label":"影响"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

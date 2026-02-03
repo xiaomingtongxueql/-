@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -248,7 +248,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"expa","label":"制度扩展","x":50,"y":50,"type":"core","url":"detail_capitalism_expansion.html"},{"id":"ru","label":"俄 1861 改革","x":20,"y":30,"type":"normal","url":"topic_serf_reform.html"},{"id":"us","label":"美国内战","x":80,"y":30,"type":"normal","url":"topic_civil_war.html"},{"id":"jp","label":"明治维新","x":50,"y":80,"type":"sub","url":"topic_meiji.html"},{"id":"unit","label":"联邦统一","x":85,"y":70,"type":"sub","url":"topic_lincoln.html"}],"edges":[{"source":"expa","target":"ru"},{"source":"expa","target":"us"},{"source":"expa","target":"jp"},{"source":"us","target":"unit"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const graphData = JSON.parse(document.getElementById('data-graph').textContent || '{}');
         if (typeof KnowledgeGraphEngine !== 'undefined') {

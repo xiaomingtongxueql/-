@@ -172,7 +172,7 @@
     <script id="data-keywords" type="application/json">[{"text":"古埃及","url":"detail_egypt.html"},{"text":"罗塞塔石碑","url":"topic_rosetta.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"hiero_core","label":"象形文字","val":30,"group":"core","url":"topic_hieroglyph.html"},{"id":"rosetta","label":"罗塞塔石碑","val":25,"group":"object","url":"topic_rosetta.html"},{"id":"champollion","label":"商博良","val":20,"group":"person","url":"topic_champollion.html"},{"id":"papyrus","label":"纸草","val":15,"group":"object","url":"topic_papyrus.html"}],"edges":[{"source":"rosetta","target":"hiero_core","label":"破译钥匙"},{"source":"champollion","target":"hiero_core","label":"破译"},{"source":"hiero_core","target":"papyrus","label":"书写载体"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -194,3 +194,4 @@
 </body>
 
 </html>
+

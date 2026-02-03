@@ -161,7 +161,7 @@
     <script id="data-keywords" type="application/json">[{"text":"大运河","url":"topic_grand_canal.html"},{"text":"隋朝","url":"detail_sui.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"wendi","label":"隋文帝","val":30,"group":"core","url":"topic_suiwendi.html"},{"id":"kaihuang","label":"开皇之治","val":25,"group":"event","url":"topic_suiwendi.html"},{"id":"unification","label":"统一全国","val":25,"group":"achievement","url":"topic_suiwendi.html"}],"edges":[{"source":"wendi","target":"kaihuang","label":"开创"},{"source":"wendi","target":"unification","label":"完成"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -197,3 +197,4 @@
 </body>
 
 </html>
+

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -198,7 +198,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"bastille","label":"巴士底狱","val":35,"group":"core","url":"topic_bastille.html"},{"id":"french_rev","label":"法国大革命","val":30,"group":"event","url":"detail_french_rev.html"},{"id":"louis_xvi","label":"路易十六","val":25,"group":"person","url":"detail_french_rev.html"},{"id":"paris","label":"巴黎公社","val":25,"group":"org","url":"topic_bastille.html"}],"edges":[{"source":"bastille","target":"french_rev","label":"开端"},{"source":"bastille","target":"louis_xvi","label":"震动"},{"source":"bastille","target":"paris","label":"催生"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

@@ -237,7 +237,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"greece","label":"古希腊","val":30,"group":"core","url":"detail_greece.html"},{"id":"athens","label":"雅典","val":20,"group":"city","url":"topic_athens_democracy.html"},{"id":"sparta","label":"斯巴达","val":20,"group":"city","url":"topic_sparta.html"},{"id":"democracy","label":"民主政治","val":25,"group":"concept","url":"topic_athens_democracy.html"},{"id":"philosophy","label":"哲学","val":25,"group":"concept","url":"topic_socrates.html"},{"id":"socrates","label":"苏格拉底","val":15,"group":"person","url":"topic_socrates.html"},{"id":"plato","label":"柏拉图","val":15,"group":"person","url":"topic_plato.html"},{"id":"aristotle","label":"亚里士多德","val":15,"group":"person","url":"topic_aristotle.html"},{"id":"alexander","label":"亚历山大","val":20,"group":"person","url":"topic_alexander.html"},{"id":"hellenistic","label":"希腊化","val":15,"group":"period","url":"topic_alexander.html"}],"edges":[{"source":"greece","target":"athens","label":"包含"},{"source":"greece","target":"sparta","label":"包含"},{"source":"athens","target":"democracy","label":"创造"},{"source":"greece","target":"philosophy","label":"巅峰"},{"source":"philosophy","target":"socrates","label":"奠基"},{"source":"socrates","target":"plato","label":"师徒"},{"source":"plato","target":"aristotle","label":"师徒"},{"source":"alexander","target":"hellenistic","label":"开启"},{"source":"athens","target":"sparta","label":"争霸"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -259,3 +259,4 @@
 </body>
 
 </html>
+

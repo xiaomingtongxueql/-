@@ -225,7 +225,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"fire_core","label":"火的使用","val":35,"group":"core","url":"topic_fire.html"},{"id":"cooked","label":"熟食","val":25,"group":"concept","url":"topic_cooking.html"},{"id":"brain","label":"脑容量扩张","val":30,"group":"impact","url":"topic_brain.html"},{"id":"metabolism","label":"代谢效率","val":20,"group":"science","url":"topic_metabolism.html"},{"id":"hearth","label":"篝火社交","val":15,"group":"social","url":"topic_social.html"}],"edges":[{"source":"fire_core","target":"cooked","label":"实现"},{"source":"cooked","target":"metabolism","label":"提高"},{"source":"metabolism","target":"brain","label":"供能"},{"source":"fire_core","target":"hearth","label":"创造"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

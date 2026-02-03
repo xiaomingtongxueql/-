@@ -220,7 +220,9 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"ir1","label":"第一次工业革命","val":30,"group":"core","url":"detail_industrial_rev_1.html"},{"id":"uk","label":"英国","val":20,"group":"location","url":"detail_uk_rev.html"},{"id":"steam","label":"蒸汽机","val":25,"group":"tech","url":"topic_watt.html"},{"id":"watt","label":"瓦特","val":15,"group":"person","url":"topic_watt.html"},{"id":"train","label":"火车","val":15,"group":"tech","url":"topic_stephenson.html"},{"id":"factory","label":"工厂制","val":20,"group":"concept","url":"topic_factory_system.html"},{"id":"urbanization","label":"城市化","val":15,"group":"impact","url":"topic_urbanization.html"},{"id":"class","label":"阶级对立","val":15,"group":"impact","url":"topic_urbanization.html"},{"id":"market","label":"世界市场","val":15,"group":"impact","url":"topic_urbanization.html"}],"edges":[{"source":"uk","target":"ir1","label":"率先开始"},{"source":"ir1","target":"steam","label":"标志"},{"source":"watt","target":"steam","label":"改良"},{"source":"steam","target":"train","label":"动力"},{"source":"ir1","target":"factory","label":"生产方式"},{"source":"ir1","target":"urbanization","label":"导致"},{"source":"ir1","target":"class","label":"导致"},{"source":"ir1","target":"market","label":"推动形成"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

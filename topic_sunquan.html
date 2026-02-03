@@ -161,7 +161,7 @@
     <script id="data-keywords" type="application/json">[{"text":"赤壁之战","url":"topic_chibi.html"},{"text":"三国","url":"detail_three_kingdoms.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"sunquan_lord","label":"孙权","val":30,"group":"core","url":"topic_sunquan.html"},{"id":"jiangdong","label":"江东","val":25,"group":"place","url":"topic_sunquan.html"},{"id":"taiwan_expedition","label":"卫温至台湾","val":20,"group":"event","url":"topic_sunquan.html"}],"edges":[{"source":"sunquan_lord","target":"jiangdong","label":"统治"},{"source":"sunquan_lord","target":"taiwan_expedition","label":"派遣"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -197,3 +197,4 @@
 </body>
 
 </html>
+

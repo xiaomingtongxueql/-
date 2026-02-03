@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -195,7 +195,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"urbanization","label":"城市化","val":35,"group":"core","url":"topic_urbanization.html"},{"id":"manchester","label":"曼彻斯特","val":25,"group":"place","url":"topic_urbanization.html"},{"id":"pollution","label":"环境污染","val":20,"group":"impact","url":"topic_urbanization.html"},{"id":"class","label":"阶级对立","val":30,"group":"concept","url":"topic_urbanization.html"},{"id":"chartism","label":"宪章运动","val":20,"group":"event","url":"topic_urbanization.html"}],"edges":[{"source":"urbanization","target":"manchester","label":"典范"},{"source":"urbanization","target":"pollution","label":"后果"},{"source":"urbanization","target":"class","label":"加剧"},{"source":"class","target":"chartism","label":"引发"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

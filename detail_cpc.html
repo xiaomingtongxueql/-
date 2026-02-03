@@ -202,7 +202,7 @@
     <script id="data-keywords" type="application/json">[{"text":"红船精神","url":"topic_red_boat.html"},{"text":"陈独秀","url":"topic_chenduxiu.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"cpc_founding","label":"中共成立","val":30,"group":"core"},{"id":"may4","label":"五四运动","val":20,"group":"foundation"},{"id":"marxism","label":"马克思主义","val":20,"group":"foundation"},{"id":"yida","label":"中共一大","val":25,"group":"event"},{"id":"shanghai","label":"上海会场","val":15,"group":"location"},{"id":"nanhu","label":"南湖红船","val":20,"group":"location"},{"id":"chen","label":"陈独秀","val":20,"group":"person"},{"id":"li","label":"李大钊","val":20,"group":"person"},{"id":"mao","label":"毛泽东","val":20,"group":"person"},{"id":"red_boat","label":"红船精神","val":25,"group":"spirit"},{"id":"significance","label":"开天辟地","val":25,"group":"impact"}],"edges":[{"source":"may4","target":"cpc_founding","label":"阶级基础"},{"source":"marxism","target":"cpc_founding","label":"思想基础"},{"source":"yida","target":"cpc_founding","label":"标志"},{"source":"yida","target":"shanghai","label":"召开"},{"source":"yida","target":"nanhu","label":"闭幕"},{"source":"chen","target":"cpc_founding","label":"发起人(南陈)"},{"source":"li","target":"cpc_founding","label":"发起人(北李)"},{"source":"yida","target":"chen","label":"总书记"},{"source":"yida","target":"mao","label":"参会"},{"source":"nanhu","target":"red_boat","label":"孕育"},{"source":"cpc_founding","target":"significance","label":"历史意义"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -224,3 +224,4 @@
 </body>
 
 </html>
+

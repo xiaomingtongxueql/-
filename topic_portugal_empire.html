@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -203,7 +203,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"portugal","label":"葡萄牙帝国","val":35,"group":"core","url":"topic_portugal_empire.html"},{"id":"henry","label":"亨利王子","val":30,"group":"person","url":"topic_henry_navigator.html"},{"id":"dagama","label":"达·伽马","val":25,"group":"person","url":"topic_da_gama.html"},{"id":"spices","label":"香料垄断","val":25,"group":"economy","url":"topic_spices.html"},{"id":"macau","label":"澳门","val":20,"group":"location","url":"topic_macau.html"},{"id":"brazil","label":"巴西","val":20,"group":"location","url":"topic_brazil.html"}],"edges":[{"source":"portugal","target":"henry","label":"奠基"},{"source":"portugal","target":"dagama","label":"开辟航线"},{"source":"portugal","target":"spices","label":"垄断"},{"source":"portugal","target":"macau","label":"租借"},{"source":"portugal","target":"brazil","label":"殖民"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

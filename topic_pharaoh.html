@@ -172,7 +172,7 @@
     <script id="data-keywords" type="application/json">[{"text":"古埃及","url":"detail_egypt.html"},{"text":"金字塔","url":"topic_pyramid.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"pharaoh_core","label":"法老","val":30,"group":"core","url":"topic_pharaoh.html"},{"id":"maat","label":"玛阿特","val":25,"group":"concept","url":"topic_maat.html"},{"id":"ramses","label":"拉美西斯二世","val":20,"group":"person","url":"topic_ramses.html"},{"id":"khufu","label":"胡夫","val":20,"group":"person","url":"topic_khufu.html"}],"edges":[{"source":"pharaoh_core","target":"maat","label":"维护"},{"source":"ramses","target":"pharaoh_core","label":"著名代表"},{"source":"khufu","target":"pharaoh_core","label":"著名代表"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -194,3 +194,4 @@
 </body>
 
 </html>
+

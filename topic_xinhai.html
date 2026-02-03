@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -156,7 +156,7 @@
     <script id="graph-data" type="application/json">{"nodes":[{"id":"revolution","label":"辛亥革命","val":25,"group":"core"},{"id":"sunzhongshan","label":"孙中山","val":20,"group":"person"},{"id":"huangxing","label":"黄兴","val":15,"group":"person"},{"id":"yuanshikai","label":"袁世凯","val":15,"group":"person"},{"id":"wuchang","label":"武昌起义","val":12,"group":"event"},{"id":"tongmenghui","label":"同盟会","val":12,"group":"org"},{"id":"sanmin","label":"三民主义","val":12,"group":"concept"},{"id":"roc","label":"中华民国","val":15,"group":"impact"},{"id":"monarchy","label":"帝制终结","val":15,"group":"impact"}],"edges":[{"source":"sunzhongshan","target":"revolution","label":"领导"},{"source":"tongmenghui","target":"revolution","label":"组织基础"},{"source":"sanmin","target":"revolution","label":"指导思想"},{"source":"wuchang","target":"revolution","label":"爆发标志"},{"source":"revolution","target":"roc","label":"建立"},{"source":"revolution","target":"monarchy","label":"导致"},{"source":"yuanshikai","target":"revolution","label":"窃取果实"}]}</script>
 
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
 
         // 渲染图谱
         const graphData = JSON.parse(document.getElementById('graph-data').textContent || '{"nodes":[], "edges":[]}');

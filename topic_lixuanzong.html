@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"安史之乱","url":"topic_anshi_rebellion.html"},{"text":"李白","url":"topic_libai.html"},{"text":"杨贵妃","url":"detail_tang.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"xuanzong","label":"唐玄宗","val":30,"group":"core","url":"topic_lixuanzong.html"},{"id":"kaiyuan","label":"开元盛世","val":25,"group":"event","url":"topic_lixuanzong.html"},{"id":"yangguifei","label":"杨贵妃","val":25,"group":"person","url":"topic_lixuanzong.html"},{"id":"yaosong","label":"姚崇宋璟","val":20,"group":"person","url":"topic_lixuanzong.html"}],"edges":[{"source":"xuanzong","target":"kaiyuan","label":"开创"},{"source":"xuanzong","target":"yangguifei","label":"宠爱"},{"source":"xuanzong","target":"yaosong","label":"任用"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

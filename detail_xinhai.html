@@ -226,7 +226,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"xinhai","label":"辛亥革命","val":30,"group":"core","url":"detail_xinhai.html"},{"id":"sun","label":"孙中山","val":25,"group":"person","url":"topic_sunzhongshan.html"},{"id":"yuan","label":"袁世凯","val":25,"group":"person","url":"topic_yuanshikai.html"},{"id":"tongmeng","label":"同盟会","val":20,"group":"party","url":"topic_tongmenghui.html"},{"id":"wuchang","label":"武昌起义","val":25,"group":"event","url":"topic_wuchang_uprising.html"},{"id":"roc","label":"中华民国","val":25,"group":"nation","url":"topic_roc.html"},{"id":"emperor_end","label":"清帝退位","val":20,"group":"event","url":"topic_qing_abdication.html"},{"id":"law","label":"临时约法","val":20,"group":"law","url":"topic_provisional_constitution.html"}],"edges":[{"source":"sun","target":"tongmeng","label":"建立"},{"source":"wuchang","target":"xinhai","label":"爆发"},{"source":"xinhai","target":"emperor_end","label":"推翻清朝"},{"source":"xinhai","target":"roc","label":"建立"},{"source":"sun","target":"roc","label":"临时大总统"},{"source":"yuan","target":"roc","label":"窃取果实"},{"source":"sun","target":"law","label":"颁布"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -248,3 +248,4 @@
 </body>
 
 </html>
+

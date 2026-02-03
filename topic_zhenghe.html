@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -143,7 +143,7 @@
     <script id="graph-data" type="application/json">{"nodes":[{"id":"voyage","label":"郑和下西洋","val":25,"group":"core"},{"id":"zhenghe","label":"郑和","val":20,"group":"person"},{"id":"zhudi","label":"明成祖","val":15,"group":"person"},{"id":"ship","label":"宝船","val":12,"group":"tech"},{"id":"africa","label":"非洲东岸","val":10,"group":"location"},{"id":"tribute","label":"朝贡体系","val":12,"group":"concept"},{"id":"columbus","label":"哥伦布","val":8,"group":"compare"}],"edges":[{"source":"zhudi","target":"voyage","label":"派遣"},{"source":"zhenghe","target":"voyage","label":"率领"},{"source":"voyage","target":"ship","label":"使用"},{"source":"voyage","target":"africa","label":"最远到达"},{"source":"voyage","target":"tribute","label":"目的"},{"source":"voyage","target":"columbus","label":"早于是"}]}</script>
 
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
 
         // 渲染图谱
         const graphData = JSON.parse(document.getElementById('graph-data').textContent || '{"nodes":[], "edges":[]}');

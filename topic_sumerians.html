@@ -172,7 +172,7 @@
     <script id="data-keywords" type="application/json">[{"text":"两河流域","url":"detail_mesopotamia.html"},{"text":"楔形文字","url":"topic_cuneiform.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"sumer","label":"苏美尔文明","val":30,"group":"core","url":"topic_sumerians.html"},{"id":"uruk","label":"乌鲁克","val":20,"group":"place","url":"topic_uruk.html"},{"id":"ziggurat","label":"塔庙","val":20,"group":"building","url":"topic_ziggurat.html"},{"id":"gilgamesh","label":"吉尔伽美什","val":25,"group":"person","url":"topic_gilgamesh.html"},{"id":"wheel","label":"车轮","val":15,"group":"tech","url":"topic_wheel.html"}],"edges":[{"source":"sumer","target":"uruk","label":"建立"},{"source":"sumer","target":"ziggurat","label":"建造"},{"source":"sumer","target":"gilgamesh","label":"史诗英雄"},{"source":"sumer","target":"wheel","label":"发明"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -194,3 +194,4 @@
 </body>
 
 </html>
+

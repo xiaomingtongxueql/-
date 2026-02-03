@@ -230,7 +230,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"taiping","label":"太平天国","val":35,"group":"core", "url": "detail_taiping.html"},{"id":"hong","label":"洪秀全","val":30,"group":"person", "url": "topic_hong_xiuquan.html"},{"id":"jintian","label":"金田起义","val":25,"group":"event", "url": "topic_jintian_uprising.html"},{"id":"nanjing","label":"定都天京","val":25,"group":"event", "url": "topic_tianjing_capital.html"},{"id":"land","label":"天朝田亩制度","val":30,"group":"policy", "url": "topic_land_system.html"},{"id":"incident","label":"天京事变","val":25,"group":"event", "url": "topic_tianjing_incident.html"},{"id":"fall","label":"天京陷落","val":20,"group":"event", "url": "topic_tianjing_fall.html"}],"edges":[{"source":"hong","target":"jintian","label":"发动"},{"source":"jintian","target":"taiping","label":"建立"},{"source":"taiping","target":"nanjing","label":"定都"},{"source":"taiping","target":"land","label":"颁布"},{"source":"incident","target":"taiping","label":"重创"},{"source":"fall","target":"taiping","label":"灭亡"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -252,3 +252,4 @@
 </body>
 
 </html>
+

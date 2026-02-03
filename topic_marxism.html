@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -272,7 +272,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"marx","label":"马克思主义","x":50,"y":50,"type":"core","url":"detail_marxism.html"},{"id":"mani","label":"共产党宣言","x":20,"y":30,"type":"normal","url":"topic_manifesto.html"},{"id":"eng","label":"恩格斯","x":80,"y":30,"type":"normal","url":"topic_marx_engels.html"},{"id":"com","label":"巴黎公社","x":50,"y":80,"type":"sub","url":"topic_commune.html"},{"id":"inter","label":"第一国际","x":85,"y":70,"type":"sub","url":"topic_first_inter.html"}],"edges":[{"source":"marx","target":"mani"},{"source":"marx","target":"eng"},{"source":"marx","target":"com"},{"source":"mani","target":"inter"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const graphData = JSON.parse(document.getElementById('data-graph').textContent || '{}');
         if (typeof KnowledgeGraphEngine !== 'undefined') {

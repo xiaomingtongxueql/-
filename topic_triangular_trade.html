@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -205,7 +205,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"trade","label":"三角贸易","val":35,"group":"core","url":"topic_triangular_trade.html"},{"id":"europe","label":"欧洲(出程)","val":25,"group":"location","url":"topic_europe_colonial.html"},{"id":"africa","label":"非洲(中程)","val":25,"group":"location","url":"topic_africa_slave.html"},{"id":"americas","label":"美洲(归程)","val":25,"group":"location","url":"topic_americas_plantation.html"},{"id":"slaves","label":"黑人奴隶","val":20,"group":"victim","url":"topic_slave.html"},{"id":"capital","label":"资本积累","val":20,"group":"impact","url":"topic_capital.html"}],"edges":[{"source":"europe","target":"africa","label":"枪支换奴隶"},{"source":"africa","target":"americas","label":"贩卖奴隶"},{"source":"americas","target":"europe","label":"金银原料"},{"source":"trade","target":"capital","label":"推动"},{"source":"trade","target":"slaves","label":"奴役"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

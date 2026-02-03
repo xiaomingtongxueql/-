@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -156,7 +156,7 @@
     <script id="graph-data" type="application/json">{"nodes":[{"id":"silkroad","label":"丝绸之路","val":25,"group":"core"},{"id":"zhangqian","label":"张骞","val":15,"group":"person"},{"id":"hanwudi","label":"汉武帝","val":15,"group":"person"},{"id":"changan","label":"长安","val":12,"group":"location"},{"id":"rome","label":"古罗马","val":12,"group":"location"},{"id":"buddhism","label":"佛教东传","val":10,"group":"culture"},{"id":"papermaking","label":"造纸术西传","val":10,"group":"tech"},{"id":"xiyu","label":"西域都护府","val":10,"group":"org"}],"edges":[{"source":"hanwudi","target":"zhangqian","label":"派遣"},{"source":"zhangqian","target":"silkroad","label":"开辟(凿空)"},{"source":"changan","target":"silkroad","label":"起点"},{"source":"silkroad","target":"rome","label":"终点大秦"},{"source":"silkroad","target":"buddhism","label":"传播路线"},{"source":"silkroad","target":"papermaking","label":"传播路线"},{"source":"hanwudi","target":"xiyu","label":"设立管辖"}]}</script>
 
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
 
         // 渲染图谱
         const graphData = JSON.parse(document.getElementById('graph-data').textContent || '{"nodes":[], "edges":[]}');

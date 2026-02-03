@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"李斯","url":"topic_lisi.html"},{"text":"秦始皇","url":"topic_yingzheng.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"junxian_sys_node","label":"郡县制","val":30,"group":"core","url":"topic_junxian.html"},{"id":"centralization","label":"中央集权","val":25,"group":"concept","url":"topic_junxian.html"},{"id":"bureaucracy","label":"官僚政治","val":25,"group":"concept","url":"topic_junxian.html"}],"edges":[{"source":"junxian_sys_node","target":"centralization","label":"保障"},{"source":"junxian_sys_node","target":"bureaucracy","label":"标志"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

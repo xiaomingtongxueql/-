@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -263,7 +263,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"plun","label":"殖民掠夺","x":50,"y":50,"type":"core","url":"detail_colonial_plunder.html"},{"id":"tri","label":"三角贸易","x":20,"y":30,"type":"normal","url":"topic_triangle_trade.html"},{"id":"east","label":"东印度公司","x":80,"y":30,"type":"normal","url":"topic_west_india.html"},{"id":"arm","label":"无敌舰队","x":50,"y":80,"type":"sub","url":"topic_armada.html"},{"id":"acc","label":"原始积累","x":85,"y":70,"type":"sub","url":"topic_original_accum.html"}],"edges":[{"source":"plun","target":"tri"},{"source":"plun","target":"east"},{"source":"plun","target":"arm"},{"source":"tri","target":"acc"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const graphData = JSON.parse(document.getElementById('data-graph').textContent || '{}');
         if (typeof KnowledgeGraphEngine !== 'undefined') {

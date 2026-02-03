@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -207,7 +207,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"yongle","label":"明成祖","val":35,"group":"core","url":"topic_yongle.html"},{"id":"ming","label":"大明王朝","val":30,"group":"dynasty","url":"detail_ming.html"},{"id":"jingnan","label":"靖难之役","val":25,"group":"event","url":"topic_jingnan.html"},{"id":"beijing","label":"迁都北京","val":20,"group":"event","url":"topic_beijing.html"},{"id":"dadian","label":"永乐大典","val":20,"group":"work","url":"topic_yongledadian.html"},{"id":"zhenghe","label":"郑和下西洋","val":25,"group":"event","url":"topic_zheng_he.html"}],"edges":[{"source":"yongle","target":"ming","label":"统治"},{"source":"yongle","target":"jingnan","label":"发动"},{"source":"yongle","target":"beijing","label":"决策"},{"source":"yongle","target":"dadian","label":"编纂"},{"source":"yongle","target":"zhenghe","label":"派遣"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

@@ -153,7 +153,7 @@
     <script id="data-keywords" type="application/json">[{"text":"封建制度","url":"topic_feudalism.html"},{"text":"中世纪欧洲","url":"detail_medieval_europe.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"black_death","label":"黑死病","val":30,"group":"core","url":"topic_black_death.html"},{"id":"plague_doctor","label":"瘟疫医生","val":25,"group":"symbol","url":"topic_black_death.html"},{"id":"social_change","label":"社会变革","val":20,"group":"impact","url":"topic_black_death.html"}],"edges":[{"source":"black_death","target":"social_change","label":"引发"},{"source":"plague_doctor","target":"black_death","label":"治疗"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -269,7 +269,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"ind2","label":"二工革命","x":50,"y":50,"type":"core","url":"detail_industrial_rev_2.html"},{"id":"elec","label":"电力时代","x":20,"y":30,"type":"normal","url":"topic_edison.html"},{"id":"mon","label":"垄断组织","x":80,"y":30,"type":"normal","url":"topic_trust.html"},{"id":"petro","label":"石油/内燃机","x":50,"y":80,"type":"sub","url":"topic_internal_combust.html"},{"id":"trans","label":"汽车飞机","x":85,"y":70,"type":"sub","url":"topic_automobile.html"}],"edges":[{"source":"ind2","target":"elec"},{"source":"ind2","target":"mon"},{"source":"ind2","target":"petro"},{"source":"petro","target":"trans"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const graphData = JSON.parse(document.getElementById('data-graph').textContent || '{}');
         if (typeof KnowledgeGraphEngine !== 'undefined') {

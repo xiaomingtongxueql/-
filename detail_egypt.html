@@ -259,7 +259,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"egypt","label":"古埃及","val":30,"group":"core","url":"detail_egypt.html"},{"id":"nile","label":"尼罗河","val":25,"group":"geo","url":"topic_nile.html"},{"id":"pharaoh","label":"法老","val":25,"group":"person","url":"topic_pharaoh.html"},{"id":"pyramid","label":"金字塔","val":20,"group":"culture","url":"topic_pyramid.html"},{"id":"hiero","label":"象形文字","val":20,"group":"culture","url":"topic_hieroglyph.html"}],"edges":[{"source":"nile","target":"egypt","label":"孕育"},{"source":"pharaoh","target":"pyramid","label":"修建"},{"source":"egypt","target":"hiero","label":"发明"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

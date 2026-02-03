@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"丝绸之路","url":"topic_silkroad.html"},{"text":"汉武帝","url":"topic_hanwudi.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"zhangqian_envoy","label":"张骞","val":30,"group":"core","url":"topic_zhangqian.html"},{"id":"xiyu","label":"西域","val":25,"group":"place","url":"topic_zhangqian.html"},{"id":"zaokong","label":"凿空","val":20,"group":"concept","url":"topic_zhangqian.html"}],"edges":[{"source":"zhangqian_envoy","target":"xiyu","label":"出使"},{"source":"zhangqian_envoy","target":"zaokong","label":"誉为"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

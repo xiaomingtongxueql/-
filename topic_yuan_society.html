@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"元朝","url":"detail_yuan.html"},{"text":"行省制","url":"topic_xingsheng.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"fourclass","label":"四等人制","val":30,"group":"core","url":"topic_yuan_society.html"},{"id":"mongol","label":"蒙古人","val":25,"group":"people","url":"topic_yuan_society.html"},{"id":"semu","label":"色目人","val":25,"group":"people","url":"topic_yuan_society.html"},{"id":"hui","label":"回族","val":25,"group":"people","url":"topic_yuan_society.html"}],"edges":[{"source":"fourclass","target":"mongol","label":"第一等"},{"source":"fourclass","target":"semu","label":"第二等"},{"source":"fourclass","target":"hui","label":"形成"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

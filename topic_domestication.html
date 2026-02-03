@@ -177,7 +177,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"domest_core","label":"驯化","val":35,"group":"core","url":"topic_domestication.html"},{"id":"selection","label":"人工选择","val":25,"group":"mechanism","url":"topic_selection.html"},{"id":"geography","label":"地理决定论","val":30,"group":"theory","url":"topic_jared_diamond.html"},{"id":"wheat","label":"小麦","val":20,"group":"crop","url":"topic_wheat.html"},{"id":"dog","label":"狗(最早驯化)","val":20,"group":"animal","url":"topic_dog.html"}],"edges":[{"source":"domest_core","target":"selection","label":"机制"},{"source":"geography","target":"domest_core","label":"解释差异"},{"source":"domest_core","target":"wheat","label":"改造"},{"source":"domest_core","target":"dog","label":"首个伙伴"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

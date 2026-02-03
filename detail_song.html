@@ -226,7 +226,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"song","label":"宋朝","val":35,"group":"core", "url":"detail_song.html"},{"id":"taizu","label":"宋太祖","val":25,"group":"emperor", "url":"topic_songtaizu.html"},{"id":"wang","label":"王安石","val":20,"group":"person", "url":"topic_wanganshi.html"},{"id":"sushi","label":"苏轼","val":20,"group":"poet", "url":"topic_sushi.html"},{"id":"zhuxi","label":"朱熹","val":20,"group":"scholar", "url":"topic_lixue.html"},{"id":"yuefei","label":"岳飞","val":20,"group":"general", "url":"topic_yuefei.html"},{"id":"centralization","label":"中央集权","val":20,"group":"system", "url":"topic_songtaizu.html"},{"id":"commerce","label":"商业革命","val":20,"group":"economy", "url":"topic_commerce.html"},{"id":"lixue","label":"程朱理学","val":15,"group":"thought", "url":"topic_lixue.html"},{"id":"tech","label":"三大发明","val":15,"group":"tech", "url":"topic_tech_song.html"}],"edges":[{"source":"taizu","target":"song","label":"建立"},{"source":"song","target":"centralization","label":"加强"},{"source":"wang","target":"song","label":"变法"},{"source":"song","target":"commerce","label":"繁荣"},{"source":"zhuxi","target":"lixue","label":"集大成"},{"source":"sushi","target":"song","label":"文坛领袖"},{"source":"yuefei","target":"song","label":"抗金"},{"source":"song","target":"tech","label":"应用"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -248,3 +248,4 @@
 </body>
 
 </html>
+

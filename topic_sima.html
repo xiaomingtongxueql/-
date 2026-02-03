@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"诸葛亮","url":"topic_zhuge.html"},{"text":"三国","url":"detail_three_kingdoms.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"sima_yi","label":"司马懿","val":30,"group":"core","url":"topic_sima.html"},{"id":"gaopingling","label":"高平陵之变","val":25,"group":"event","url":"topic_sima.html"},{"id":"rivalry","label":"魏蜀对峙","val":20,"group":"event","url":"topic_zhuge.html"}],"edges":[{"source":"sima_yi","target":"gaopingling","label":"发动"},{"source":"sima_yi","target":"rivalry","label":"主导"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

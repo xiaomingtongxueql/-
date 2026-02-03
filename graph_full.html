@@ -521,7 +521,9 @@
     <div id="graph-container" class="w-full h-screen cursor-move"></div>
 
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
 
         // --- Logic ---
         document.addEventListener('DOMContentLoaded', () => {

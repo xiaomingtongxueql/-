@@ -153,7 +153,7 @@
     <script id="data-keywords" type="application/json">[{"text":"柏拉图","url":"topic_plato.html"},{"text":"雅典民主","url":"topic_athens_democracy.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"socrates_phil","label":"苏格拉底","val":30,"group":"core","url":"topic_socrates.html"},{"id":"plato_student","label":"柏拉图","val":20,"group":"person","url":"topic_plato.html"},{"id":"hemlock","label":"毒鸠之死","val":15,"group":"event","url":"topic_socrates.html"}],"edges":[{"source":"socrates_phil","target":"plato_student","label":"师徒"},{"source":"socrates_phil","target":"hemlock","label":"殉道"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

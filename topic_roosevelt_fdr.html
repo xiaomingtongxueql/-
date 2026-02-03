@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -156,7 +156,7 @@
     <script id="data-keywords" type="application/json">[{"text":"丘吉尔","url":"topic_churchill.html"},{"text":"斯大林","url":"topic_stalin.html"},{"text":"经济大危机","url":"topic_great_depression.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"main","label":"FDR","type":"core"},{"id":"new_deal","label":"新政","type":"sub"},{"id":"ww2","label":"二战","type":"sub"},{"id":"polio","label":"小儿麻痹","type":"sub"},{"id":"eleanor","label":"埃莉诺","type":"normal"}],"edges":[{"source":"main","target":"new_deal"},{"source":"main","target":"ww2"},{"source":"main","target":"polio"},{"source":"main","target":"eleanor"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -166,7 +166,7 @@
             el.innerHTML = `<span class="w-2 h-2 bg-accent rounded-full"></span><span class="text-sm font-bold text-gray-600 group-hover:text-primary">${kw.text}</span><i data-lucide="arrow-right" class="w-3 h-3 text-gray-300"></i>`;
             listContainer.appendChild(el);
         });
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const graphData = JSON.parse(document.getElementById('data-graph').textContent || '{}');
         if (typeof KnowledgeGraphEngine !== 'undefined') {
             const engine = new KnowledgeGraphEngine('knowledge-graph', { lineColor: '#0969DA', nodeColor: '#0969DA' });

@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"宋朝","url":"detail_song.html"},{"text":"王安石","url":"topic_wanganshi.html"},{"text":"辛弃疾","url":"topic_sushi.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"sushi","label":"苏轼","val":30,"group":"core","url":"topic_sushi.html"},{"id":"haofang","label":"豪放派","val":25,"group":"style","url":"topic_sushi.html"},{"id":"dongpo","label":"东坡居士","val":25,"group":"title","url":"topic_sushi.html"},{"id":"xinqiji","label":"辛弃疾","val":20,"group":"person","url":"topic_sushi.html"}],"edges":[{"source":"sushi","target":"haofang","label":"开创"},{"source":"sushi","target":"dongpo","label":"自号"},{"source":"sushi","target":"xinqiji","label":"并称"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

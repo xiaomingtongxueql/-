@@ -172,7 +172,7 @@
     <script id="data-keywords" type="application/json">[{"text":"两河流域","url":"detail_mesopotamia.html"},{"text":"幼发拉底河","url":"topic_euphrates.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"tigris","label":"底格里斯河","val":30,"group":"core","url":"topic_tigris.html"},{"id":"euphrates","label":"幼发拉底河","val":30,"group":"geo","url":"topic_euphrates.html"},{"id":"assyria","label":"亚述帝国","val":25,"group":"civ","url":"topic_assyria.html"},{"id":"nineveh","label":"尼尼微","val":20,"group":"place","url":"topic_nineveh.html"}],"edges":[{"source":"tigris","target":"euphrates","label":"姊妹河"},{"source":"tigris","target":"assyria","label":"孕育"},{"source":"nineveh","target":"tigris","label":"沿岸城市"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -194,3 +194,4 @@
 </body>
 
 </html>
+

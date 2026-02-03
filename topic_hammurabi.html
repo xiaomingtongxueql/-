@@ -172,7 +172,7 @@
     <script id="data-keywords" type="application/json">[{"text":"两河流域","url":"detail_mesopotamia.html"},{"text":"楔形文字","url":"topic_cuneiform.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"code_core","label":"汉谟拉比法典","val":30,"group":"core","url":"topic_hammurabi.html"},{"id":"hammurabi","label":"汉谟拉比","val":25,"group":"creator","url":"topic_hammurabi.html"},{"id":"shamash","label":"沙马什(神)","val":20,"group":"god","url":"topic_shamash.html"},{"id":"babylon","label":"古巴比伦","val":25,"group":"place","url":"topic_babylon.html"}],"edges":[{"source":"hammurabi","target":"code_core","label":"颁布"},{"source":"shamash","target":"hammurabi","label":"授予权力"},{"source":"code_core","target":"babylon","label":"治理基础"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -194,3 +194,4 @@
 </body>
 
 </html>
+

@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"封建制度","url":"topic_feudalism.html"},{"text":"中世纪欧洲","url":"detail_medieval_europe.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"manor","label":"庄园","val":30,"group":"core","url":"topic_manor.html"},{"id":"serf","label":"农奴","val":25,"group":"class","url":"topic_manor.html"},{"id":"three_field","label":"三圃制","val":20,"group":"tech","url":"topic_manor.html"}],"edges":[{"source":"manor","target":"serf","label":"剥削"},{"source":"manor","target":"three_field","label":"采用"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

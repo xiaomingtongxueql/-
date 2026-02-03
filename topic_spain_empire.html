@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -205,7 +205,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"spain","label":"西班牙帝国","val":35,"group":"core","url":"topic_spain_empire.html"},{"id":"isabella","label":"伊莎贝拉女王","val":30,"group":"person","url":"topic_isabella.html"},{"id":"armada","label":"无敌舰队","val":25,"group":"event","url":"topic_armada.html"},{"id":"silver","label":"银山/掠夺","val":25,"group":"economy","url":"topic_colonial_plunder.html"},{"id":"philippines","label":"菲律宾","val":20,"group":"location","url":"topic_philippines_colony.html"},{"id":"catholic","label":"天主教传播","val":20,"group":"religion","url":"topic_catholic.html"}],"edges":[{"source":"spain","target":"isabella","label":"统治"},{"source":"spain","target":"armada","label":"组建"},{"source":"spain","target":"silver","label":"掠夺"},{"source":"spain","target":"philippines","label":"殖民"},{"source":"spain","target":"catholic","label":"狂热"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

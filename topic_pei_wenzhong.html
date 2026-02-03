@@ -194,7 +194,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"pei_core","label":"裴文中","val":30,"group":"core","url":"topic_pei_wenzhong.html"},{"id":"skull","label":"1929发现","val":25,"group":"event","url":"detail_primitive.html"},{"id":"zhou","label":"周口店","val":20,"group":"place","url":"topic_zhoukoudian.html"},{"id":"micro","label":"细石器","val":15,"group":"concept","url":"#"}],"edges":[{"source":"pei_core","target":"skull","label":"主持发现"},{"source":"pei_core","target":"zhou","label":"工作地"},{"source":"pei_core","target":"micro","label":"命名"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

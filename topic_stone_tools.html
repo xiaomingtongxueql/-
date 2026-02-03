@@ -182,7 +182,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"stone_core","label":"石器技术","val":35,"group":"core","url":"topic_stone_tools.html"},{"id":"habilis","label":"能人","val":25,"group":"species","url":"topic_habilis.html"},{"id":"erectus","label":"直立人","val":25,"group":"species","url":"detail_primitive_world.html"},{"id":"handaxe","label":"手斧","val":20,"group":"tech","url":"topic_handaxe.html"},{"id":"levallois","label":"勒瓦娄哇","val":20,"group":"tech","url":"topic_levallois.html"}],"edges":[{"source":"habilis","target":"stone_core","label":"开启"},{"source":"erectus","target":"handaxe","label":"发明"},{"source":"handaxe","target":"stone_core","label":"属于"},{"source":"levallois","target":"stone_core","label":"进阶"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

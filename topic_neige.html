@@ -196,7 +196,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"neige","label":"内阁","val":35,"group":"core","url":"topic_neige.html"},{"id":"emperor","label":"皇帝","val":30,"group":"power","url":"detail_ming.html"},{"id":"silijian","label":"司礼监","val":25,"group":"power","url":"topic_silijian.html"},{"id":"piaoni","label":"票拟权","val":20,"group":"concept","url":"topic_piaoni.html"},{"id":"zhang","label":"张居正","val":20,"group":"person","url":"topic_zhangjuzheng.html"},{"id":"yan","label":"严嵩","val":15,"group":"person","url":"topic_yansong.html"}],"edges":[{"source":"emperor","target":"neige","label":"咨询"},{"source":"neige","target":"piaoni","label":"拥有"},{"source":"silijian","target":"neige","label":"制衡"},{"source":"zhang","target":"neige","label":"首辅"},{"source":"yan","target":"neige","label":"首辅"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

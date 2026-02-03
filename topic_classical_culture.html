@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -231,7 +231,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"classic","label":"古典文化","x":50,"y":50,"type":"core"},{"id":"phi","label":"希腊哲学","x":20,"y":30,"type":"normal"},{"id":"law","label":"罗马法律","x":80,"y":30,"type":"normal"},{"id":"arch","label":"建筑美学","x":50,"y":80,"type":"sub"},{"id":"lit","label":"英雄史诗","x":85,"y":70,"type":"sub"}],"edges":[{"source":"classic","target":"phi"},{"source":"classic","target":"law"},{"source":"classic","target":"arch"},{"source":"classic","target":"lit"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const graphData = JSON.parse(document.getElementById('data-graph').textContent || '{}');
         if (typeof KnowledgeGraphEngine !== 'undefined') {

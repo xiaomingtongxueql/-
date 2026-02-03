@@ -226,7 +226,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"zhou","label":"西周","val":30,"group":"core","url":"detail_zhou.html"},{"id":"wuwang","label":"周武王","val":20,"group":"person","url":"topic_wuwang.html"},{"id":"zhougong","label":"周公","val":20,"group":"person","url":"topic_zhougong.html"},{"id":"fenfeng","label":"分封制","val":25,"group":"system","url":"topic_fenfeng.html"},{"id":"zongfa","label":"宗法制","val":25,"group":"system","url":"topic_zongfa.html"},{"id":"liyue","label":"礼乐制度","val":20,"group":"system","url":"topic_liyue.html"},{"id":"muye","label":"牧野之战","val":15,"group":"event","url":"topic_wuwang.html"},{"id":"fall","label":"西周灭亡","val":15,"group":"event","url":"topic_fenghuo.html"}],"edges":[{"source":"wuwang","target":"muye","label":"获胜"},{"source":"muye","target":"zhou","label":"建立"},{"source":"zhou","target":"fenfeng","label":"实行"},{"source":"zhou","target":"zongfa","label":"实行"},{"source":"zhougong","target":"liyue","label":"制定"},{"source":"liyue","target":"zhou","label":"维护秩序"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -248,3 +248,4 @@
 </body>
 
 </html>
+

@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"宋朝","url":"detail_song.html"},{"text":"王安石","url":"topic_wanganshi.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"lixue","label":"程朱理学","val":30,"group":"core","url":"topic_lixue.html"},{"id":"zhuxi","label":"朱熹","val":25,"group":"scholar","url":"topic_lixue.html"},{"id":"ercheng","label":"二程","val":20,"group":"scholar","url":"topic_lixue.html"},{"id":"sishu","label":"四书","val":20,"group":"book","url":"topic_lixue.html"},{"id":"cunli","label":"存天理灭人欲","val":20,"group":"concept","url":"topic_lixue.html"}],"edges":[{"source":"zhuxi","target":"lixue","label":"集大成"},{"source":"ercheng","target":"lixue","label":"创立"},{"source":"zhuxi","target":"sishu","label":"编注"},{"source":"zhuxi","target":"cunli","label":"提出"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

@@ -171,7 +171,7 @@
     <script id="data-keywords" type="application/json">[{"text":"文艺复兴","url":"detail_renaissance.html"},{"text":"人文主义","url":"topic_humanism.html"},{"text":"达·芬奇","url":"topic_da_vinci.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"italy_ren","label":"意大利文艺复兴","val":30,"group":"core","url":"topic_italian_renaissance.html"},{"id":"florence","label":"佛罗伦萨","val":25,"group":"place","url":"topic_italian_renaissance.html"},{"id":"medici","label":"美第奇家族","val":25,"group":"person","url":"topic_italian_renaissance.html"},{"id":"humanism","label":"人文主义","val":20,"group":"concept","url":"topic_humanism.html"}],"edges":[{"source":"italy_ren","target":"florence","label":"中心"},{"source":"florence","target":"medici","label":"统治者"},{"source":"italy_ren","target":"humanism","label":"核心"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

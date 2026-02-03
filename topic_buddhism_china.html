@@ -161,7 +161,7 @@
     <script id="data-keywords" type="application/json">[{"text":"孝文帝改革","url":"topic_xiaowendi.html"},{"text":"魏晋南北朝","url":"detail_weijin.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"buddhism_cn","label":"佛教","val":30,"group":"core","url":"topic_buddhism_china.html"},{"id":"grottoes","label":"石窟艺术","val":25,"group":"art","url":"topic_buddhism_china.html"},{"id":"kumarajiva","label":"鸠摩罗什","val":20,"group":"person","url":"topic_buddhism_china.html"},{"id":"faxian","label":"法显","val":20,"group":"person","url":"topic_buddhism_china.html"}],"edges":[{"source":"buddhism_cn","target":"grottoes","label":"创造"},{"source":"kumarajiva","target":"buddhism_cn","label":"译经"},{"source":"faxian","target":"buddhism_cn","label":"求法"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -197,3 +197,4 @@
 </body>
 
 </html>
+

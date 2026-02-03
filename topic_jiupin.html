@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"曹操","url":"topic_caocao.html"},{"text":"三国","url":"detail_three_kingdoms.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"nine_rank_sys","label":"九品中正制","val":30,"group":"core","url":"topic_jiupin.html"},{"id":"aristocracy","label":"门阀士族","val":25,"group":"class","url":"topic_jiupin.html"},{"id":"caopi","label":"曹丕","val":20,"group":"person","url":"topic_jiupin.html"}],"edges":[{"source":"caopi","target":"nine_rank_sys","label":"创立"},{"source":"nine_rank_sys","target":"aristocracy","label":"巩固"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

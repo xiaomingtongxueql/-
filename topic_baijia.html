@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"孔子","url":"topic_confucius.html"},{"text":"老子","url":"topic_laozi.html"},{"text":"商鞅变法","url":"topic_shangyang.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"contention_hundred","label":"百家争鸣","val":30,"group":"core","url":"topic_baijia.html"},{"id":"confucian_school","label":"儒家","val":20,"group":"school","url":"topic_confucius.html"},{"id":"daoist_school","label":"道家","val":20,"group":"school","url":"topic_laozi.html"},{"id":"legalist_school","label":"法家","val":20,"group":"school","url":"topic_shangyang.html"},{"id":"mohist_school","label":"墨家","val":15,"group":"school","url":"topic_baijia.html"}],"edges":[{"source":"contention_hundred","target":"confucian_school","label":"主流"},{"source":"contention_hundred","target":"daoist_school","label":"哲学"},{"source":"contention_hundred","target":"legalist_school","label":"治国"},{"source":"contention_hundred","target":"mohist_school","label":"平民"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

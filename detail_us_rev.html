@@ -217,7 +217,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"us_rev","label":"美国独立战争","val":35,"group":"core","url":"detail_us_rev.html"},{"id":"uk","label":"英国","val":20,"group":"location","url":"detail_us_rev.html"},{"id":"usa","label":"美国","val":30,"group":"location","url":"detail_us_rev.html"},{"id":"washington","label":"华盛顿","val":25,"group":"person","url":"topic_washington.html"},{"id":"jefferson","label":"杰斐逊","val":25,"group":"person","url":"topic_jefferson.html"},{"id":"declaration","label":"独立宣言","val":30,"group":"document","url":"topic_declaration.html"},{"id":"constitution","label":"1787宪法","val":30,"group":"document","url":"topic_constitution_1787.html"},{"id":"check_balance","label":"三权分立","val":25,"group":"concept","url":"topic_separation_powers.html"},{"id":"republic","label":"共和制","val":20,"group":"system","url":"topic_constitution_1787.html"}],"edges":[{"source":"usa","target":"uk","label":"反抗殖民"},{"source":"washington","target":"us_rev","label":"领导"},{"source":"jefferson","target":"declaration","label":"起草"},{"source":"us_rev","target":"declaration","label":"纲领"},{"source":"us_rev","target":"constitution","label":"成果"},{"source":"constitution","target":"check_balance","label":"原则"},{"source":"constitution","target":"republic","label":"确立"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -239,3 +239,4 @@
 </body>
 
 </html>
+

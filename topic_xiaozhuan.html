@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"李斯","url":"topic_lisi.html"},{"text":"秦始皇","url":"topic_yingzheng.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"shutongwen","label":"书同文","val":30,"group":"core","url":"topic_xiaozhuan.html"},{"id":"xiaozhuan","label":"小篆","val":25,"group":"concept","url":"topic_xiaozhuan.html"},{"id":"lishu","label":"隶书","val":20,"group":"concept","url":"topic_xiaozhuan.html"}],"edges":[{"source":"shutongwen","target":"xiaozhuan","label":"确立"},{"source":"xiaozhuan","target":"lishu","label":"演变"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

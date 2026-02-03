@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -189,7 +189,7 @@
     <script id="data-keywords" type="application/json">[{"text":"唐太宗","url":"topic_tang_taizong.html"},{"text":"唐玄宗","url":"topic_tang_xuanzong.html"},{"text":"狄仁杰","url":"topic_di_renjie.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"main","label":"武则天","type":"core"},{"id":"tang","label":"唐朝","type":"sub"},{"id":"zhou","label":"武周","type":"sub"},{"id":"keju","label":"科举改革","type":"sub"},{"id":"gaozong","label":"唐高宗","type":"normal"}],"edges":[{"source":"main","target":"tang"},{"source":"main","target":"zhou"},{"source":"main","target":"keju"},{"source":"main","target":"gaozong"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -199,7 +199,7 @@
             el.innerHTML = `<span class="w-2 h-2 bg-accent rounded-full"></span><span class="text-sm font-bold text-gray-600 group-hover:text-primary">${kw.text}</span><i data-lucide="arrow-right" class="w-3 h-3 text-gray-300"></i>`;
             listContainer.appendChild(el);
         });
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const graphData = JSON.parse(document.getElementById('data-graph').textContent || '{}');
         if (typeof KnowledgeGraphEngine !== 'undefined') {
             const engine = new KnowledgeGraphEngine('knowledge-graph', { lineColor: '#D4AF37', nodeColor: '#D4AF37' });

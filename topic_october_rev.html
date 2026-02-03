@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -268,7 +268,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"oct","label":"十月革命","x":50,"y":50,"type":"core","url":"detail_october_rev.html"},{"id":"lenin","label":"列宁指导","x":20,"y":30,"type":"normal","url":"topic_lenin.html"},{"id":"sov","label":"苏维埃政权","x":80,"y":30,"type":"normal","url":"topic_soviet.html"},{"id":"winter","label":"攻占冬宫","x":50,"y":80,"type":"sub"},{"id":"bol","label":"布尔什维克","x":85,"y":70,"type":"sub","url":"topic_bolshevik.html"}],"edges":[{"source":"oct","target":"lenin"},{"source":"oct","target":"sov"},{"source":"oct","target":"winter"},{"source":"lenin","target":"bol"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const graphData = JSON.parse(document.getElementById('data-graph').textContent || '{}');
         if (typeof KnowledgeGraphEngine !== 'undefined') {

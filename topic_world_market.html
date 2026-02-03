@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -204,7 +204,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"market","label":"世界市场","val":35,"group":"core","url":"topic_world_market.html"},{"id":"commercial","label":"商业革命","val":30,"group":"event","url":"topic_commercial_rev.html"},{"id":"price","label":"价格革命","val":30,"group":"event","url":"topic_price_rev.html"},{"id":"triangular","label":"三角贸易","val":25,"group":"economy","url":"topic_triangular_trade.html"},{"id":"eic","label":"东印度公司","val":25,"group":"economy","url":"topic_east_india.html"},{"id":"capitalism","label":"资本主义","val":20,"group":"impact","url":"topic_capitalism.html"}],"edges":[{"source":"market","target":"commercial","label":"体现"},{"source":"market","target":"price","label":"引发"},{"source":"market","target":"triangular","label":"包含"},{"source":"market","target":"eic","label":"主体"},{"source":"market","target":"capitalism","label":"奠基"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

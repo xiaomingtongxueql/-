@@ -172,7 +172,7 @@
     <script id="data-keywords" type="application/json">[{"text":"苏美尔文明","url":"topic_sumerian.html"},{"text":"汉谟拉比法典","url":"topic_hammurabi.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"cuneiform","label":"楔形文字","val":30,"group":"core","url":"topic_cuneiform.html"},{"id":"sumer","label":"苏美尔人","val":25,"group":"creator","url":"topic_sumerian.html"},{"id":"scribe","label":"书吏","val":20,"group":"job","url":"topic_scribe.html"},{"id":"behistun","label":"贝希斯敦铭文","val":20,"group":"key","url":"topic_behistun.html"}],"edges":[{"source":"sumer","target":"cuneiform","label":"发明"},{"source":"scribe","target":"cuneiform","label":"掌握"},{"source":"behistun","target":"cuneiform","label":"破译钥匙"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -194,3 +194,4 @@
 </body>
 
 </html>
+

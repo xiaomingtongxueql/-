@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"元朝","url":"detail_yuan.html"},{"text":"忽必烈","url":"topic_kublai.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"marco","label":"马可·波罗","val":30,"group":"core","url":"topic_marcopolo.html"},{"id":"book","label":"东方见闻录","val":25,"group":"book","url":"topic_marcopolo.html"},{"id":"kublai","label":"忽必烈","val":20,"group":"emperor","url":"topic_kublai.html"},{"id":"hangzhou","label":"杭州","val":20,"group":"place","url":"topic_marcopolo.html"}],"edges":[{"source":"marco","target":"book","label":"口述"},{"source":"kublai","target":"marco","label":"接见"},{"source":"marco","target":"hangzhou","label":"赞叹"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"唐玄宗","url":"topic_lixuanzong.html"},{"text":"节度使","url":"topic_jiedushi.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"anshi","label":"安史之乱","val":30,"group":"core","url":"topic_anshi_rebellion.html"},{"id":"anlushan","label":"安禄山","val":25,"group":"person","url":"topic_anshi_rebellion.html"},{"id":"shisiming","label":"史思明","val":20,"group":"person","url":"topic_anshi_rebellion.html"},{"id":"guoziyi","label":"郭子仪","val":25,"group":"person","url":"topic_anshi_rebellion.html"}],"edges":[{"source":"anlushan","target":"anshi","label":"发动"},{"source":"shisiming","target":"anshi","label":"参与"},{"source":"guoziyi","target":"anshi","label":"平定"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

@@ -153,7 +153,7 @@
     <script id="data-keywords" type="application/json">[{"text":"封建制度","url":"topic_feudalism.html"},{"text":"中世纪欧洲","url":"detail_medieval_europe.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"knight","label":"骑士","val":30,"group":"core","url":"topic_knight.html"},{"id":"chivalry","label":"骑士精神","val":25,"group":"spirit","url":"topic_knight.html"},{"id":"tournament","label":"比武大赛","val":20,"group":"event","url":"topic_knight.html"}],"edges":[{"source":"knight","target":"chivalry","label":"信条"},{"source":"knight","target":"tournament","label":"参与"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

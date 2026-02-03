@@ -255,7 +255,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"renaissance","label":"文艺复兴","val":30,"group":"core","url":"detail_renaissance.html"},{"id":"italy","label":"意大利","val":20,"group":"location","url":"topic_italian_renaissance.html"},{"id":"humanism","label":"人文主义","val":25,"group":"concept","url":"topic_humanism.html"},{"id":"dante","label":"但丁","val":15,"group":"person","url":"topic_dante.html"},{"id":"da_vinci","label":"达·芬奇","val":15,"group":"person","url":"topic_da_vinci.html"},{"id":"michelangelo","label":"米开朗基罗","val":15,"group":"person","url":"topic_michelangelo.html"},{"id":"raphael","label":"拉斐尔","val":15,"group":"person","url":"topic_raphael.html"},{"id":"shakespeare","label":"莎士比亚","val":15,"group":"person","url":"topic_shakespeare.html"},{"id":"science","label":"科学革命","val":20,"group":"impact","url":"topic_scientific_revolution.html"},{"id":"reformation","label":"宗教改革","val":15,"group":"impact","url":"topic_reformation.html"}],"edges":[{"source":"italy","target":"renaissance","label":"发源地"},{"source":"renaissance","target":"humanism","label":"核心思想"},{"source":"dante","target":"renaissance","label":"先驱"},{"source":"renaissance","target":"da_vinci","label":"美术三杰"},{"source":"renaissance","target":"michelangelo","label":"美术三杰"},{"source":"renaissance","target":"raphael","label":"美术三杰"},{"source":"renaissance","target":"shakespeare","label":"文学高峰"},{"source":"renaissance","target":"science","label":"推动"},{"source":"renaissance","target":"reformation","label":"铺垫"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -277,3 +277,4 @@
 </body>
 
 </html>
+

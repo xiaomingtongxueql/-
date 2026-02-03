@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -167,7 +167,7 @@
     <script id="data-keywords" type="application/json">[{"text":"唐玄宗","url":"topic_xuanzong.html"},{"text":"藩镇割据","url":"topic_fanzhen.html"},{"text":"丝绸之路","url":"topic_silkroad.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"main","label":"安史之乱","type":"core"},{"id":"tang","label":"唐玄宗","type":"normal","url":"topic_xuanzong.html"},{"id":"yang","label":"杨贵妃","type":"normal","url":"topic_yangguifei.html"},{"id":"fanzhen","label":"藩镇割据","type":"sub","url":"topic_fanzhen.html"},{"id":"south","label":"经济重心南移","type":"sub"}],"edges":[{"source":"tang","target":"main"},{"source":"main","target":"yang"},{"source":"main","target":"fanzhen"},{"source":"main","target":"south"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -177,7 +177,7 @@
             el.innerHTML = `<span class="w-2 h-2 bg-accent rounded-full"></span><span class="text-sm font-bold text-gray-600 group-hover:text-primary">${kw.text}</span><i data-lucide="arrow-right" class="w-3 h-3 text-gray-300"></i>`;
             listContainer.appendChild(el);
         });
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const graphData = JSON.parse(document.getElementById('data-graph').textContent || '{}');
         if (typeof KnowledgeGraphEngine !== 'undefined') {
             const engine = new KnowledgeGraphEngine('knowledge-graph', { lineColor: '#D4AF37', nodeColor: '#D4AF37' });

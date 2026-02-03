@@ -206,7 +206,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"expansion","label":"资本主义扩展","val":30,"group":"core","url":"detail_capitalism_expansion.html"},{"id":"russia","label":"俄国改革","val":20,"group":"event","url":"topic_russian_reform.html"},{"id":"usa","label":"南北战争","val":20,"group":"event","url":"topic_civil_war.html"},{"id":"japan","label":"明治维新","val":20,"group":"event","url":"topic_meiji_restoration.html"},{"id":"serfdom","label":"废除农奴制","val":15,"group":"policy","url":"topic_serfdom_abolition.html"},{"id":"slavery","label":"废除奴隶制","val":15,"group":"policy","url":"topic_emancipation.html"},{"id":"westernization","label":"全面西化","val":15,"group":"policy","url":"topic_westernization.html"},{"id":"industrialization","label":"工业化","val":25,"group":"impact","url":"topic_industrialization.html"}],"edges":[{"source":"expansion","target":"russia","label":"包含"},{"source":"expansion","target":"usa","label":"包含"},{"source":"expansion","target":"japan","label":"包含"},{"source":"russia","target":"serfdom","label":"内容"},{"source":"usa","target":"slavery","label":"成果"},{"source":"japan","target":"westernization","label":"特点"},{"source":"russia","target":"industrialization","label":"导致"},{"source":"usa","target":"industrialization","label":"加速"},{"source":"japan","target":"industrialization","label":"开启"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -228,3 +228,4 @@
 </body>
 
 </html>
+

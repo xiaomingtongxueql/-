@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -204,7 +204,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"magellan","label":"麦哲伦","val":35,"group":"core","url":"topic_magellan.html"},{"id":"spain","label":"西班牙","val":30,"group":"sponsor","url":"topic_spain_empire.html"},{"id":"pacific","label":"太平洋","val":25,"group":"location","url":"topic_pacific.html"},{"id":"circumnavigation","label":"环球航行","val":25,"group":"event","url":"topic_circumnavigation.html"},{"id":"elcano","label":"埃尔卡诺","val":20,"group":"person","url":"topic_elcano.html"},{"id":"lapulapu","label":"拉普拉普","val":20,"group":"person","url":"topic_lapulapu.html"}],"edges":[{"source":"magellan","target":"spain","label":"效力"},{"source":"magellan","target":"circumnavigation","label":"指挥"},{"source":"magellan","target":"pacific","label":"命名"},{"source":"magellan","target":"lapulapu","label":"被杀"},{"source":"elcano","target":"circumnavigation","label":"完成"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

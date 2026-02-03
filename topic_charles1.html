@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -206,7 +206,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"charles1","label":"查理一世","val":35,"group":"core","url":"topic_charles1.html"},{"id":"cromwell","label":"克伦威尔","val":30,"group":"person","url":"topic_cromwell.html"},{"id":"civil_war","label":"内战","val":25,"group":"event","url":"detail_uk_rev.html"},{"id":"divine_right","label":"君权神授","val":20,"group":"concept","url":"topic_absolutism.html"}],"edges":[{"source":"charles1","target":"cromwell","label":"死敌"},{"source":"charles1","target":"civil_war","label":"挑起"},{"source":"charles1","target":"divine_right","label":"信奉"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

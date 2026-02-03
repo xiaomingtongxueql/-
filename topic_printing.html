@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -148,7 +148,7 @@
     <script id="graph-data" type="application/json">{"nodes":[{"id":"printing","label":"活字印刷术","val":25,"group":"core"},{"id":"bisheng","label":"毕昇","val":15,"group":"person"},{"id":"diaoban","label":"雕版印刷","val":12,"group":"concept"},{"id":"clay","label":"胶泥活字","val":12,"group":"tech"},{"id":"wood","label":"木活字(王祯)","val":10,"group":"tech"},{"id":"metal","label":"金属活字(古腾堡)","val":10,"group":"tech"},{"id":"knowledge","label":"知识普及","val":15,"group":"impact"},{"id":"renaissance","label":"文艺复兴","val":12,"group":"impact"}],"edges":[{"source":"bisheng","target":"printing","label":"发明"},{"source":"printing","target":"diaoban","label":"取代/改进"},{"source":"printing","target":"clay","label":"最初材质"},{"source":"printing","target":"wood","label":"元代改进"},{"source":"printing","target":"metal","label":"欧洲改进"},{"source":"printing","target":"knowledge","label":"推动"},{"source":"metal","target":"renaissance","label":"加速"}]}</script>
 
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
 
         // 渲染图谱
         const graphData = JSON.parse(document.getElementById('graph-data').textContent || '{"nodes":[], "edges":[]}');

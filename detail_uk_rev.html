@@ -206,7 +206,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"uk_rev","label":"英国革命","val":30,"group":"core","url":"detail_uk_rev.html"},{"id":"parliament","label":"议会","val":25,"group":"org","url":"topic_bill_rights.html"},{"id":"king","label":"国王","val":20,"group":"person","url":"topic_charles1.html"},{"id":"cromwell","label":"克伦威尔","val":15,"group":"person","url":"topic_cromwell.html"},{"id":"charles1","label":"查理一世","val":15,"group":"person","url":"topic_charles1.html"},{"id":"glorious_rev","label":"光荣革命","val":20,"group":"event","url":"topic_glorious_rev.html"},{"id":"bill_rights","label":"权利法案","val":25,"group":"document","url":"topic_bill_rights.html"},{"id":"constitutional","label":"君主立宪制","val":20,"group":"system","url":"topic_constitutional_monarchy.html"}],"edges":[{"source":"parliament","target":"king","label":"对抗"},{"source":"uk_rev","target":"charles1","label":"处死"},{"source":"cromwell","target":"uk_rev","label":"独裁"},{"source":"uk_rev","target":"glorious_rev","label":"结束"},{"source":"glorious_rev","target":"bill_rights","label":"成果"},{"source":"bill_rights","target":"constitutional","label":"确立"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -228,3 +228,4 @@
 </body>
 
 </html>
+

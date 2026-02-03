@@ -153,7 +153,7 @@
     <script id="data-keywords" type="application/json">[{"text":"古希腊","url":"detail_greece.html"},{"text":"雅典民主","url":"topic_athens_democracy.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"parthenon_temple","label":"帕特农神庙","val":30,"group":"core","url":"topic_parthenon.html"},{"id":"athena","label":"雅典娜","val":20,"group":"god","url":"topic_parthenon.html"},{"id":"architecture","label":"建筑","val":20,"group":"art","url":"detail_greece.html"}],"edges":[{"source":"parthenon_temple","target":"athena","label":"供奉"},{"source":"architecture","target":"parthenon_temple","label":"典范"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

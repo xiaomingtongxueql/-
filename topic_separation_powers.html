@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -197,7 +197,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"check_balance","label":"三权分立","val":35,"group":"core","url":"topic_separation_powers.html"},{"id":"congress","label":"国会(立法)","val":25,"group":"org","url":"topic_constitution_1787.html"},{"id":"president","label":"总统(行政)","val":25,"group":"role","url":"topic_washington.html"},{"id":"court","label":"最高法院(司法)","val":25,"group":"org","url":"topic_separation_powers.html"},{"id":"montesquieu","label":"孟德斯鸠","val":20,"group":"person","url":"topic_separation_powers.html"}],"edges":[{"source":"check_balance","target":"congress","label":"包含"},{"source":"check_balance","target":"president","label":"包含"},{"source":"check_balance","target":"court","label":"包含"},{"source":"montesquieu","target":"check_balance","label":"提出"},{"source":"congress","target":"president","label":"制衡"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

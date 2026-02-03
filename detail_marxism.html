@@ -204,7 +204,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"marxism","label":"马克思主义","val":35,"group":"core", "url": "detail_marxism.html"},{"id":"marx","label":"马克思","val":30,"group":"person", "url": "topic_marx.html"},{"id":"engels","label":"恩格斯","val":30,"group":"person", "url": "topic_engels.html"},{"id":"manifesto","label":"共产党宣言","val":30,"group":"document", "url": "topic_communist_manifesto.html"},{"id":"first_intl","label":"第一国际","val":25,"group":"org", "url": "topic_first_international.html"},{"id":"paris_commune","label":"巴黎公社","val":25,"group":"event", "url": "topic_paris_commune.html"},{"id":"socialism","label":"社会主义","val":20,"group":"concept", "url": "detail_marxism.html"},{"id":"worker_movement","label":"工人运动","val":20,"group":"event", "url": "detail_marxism.html"}],"edges":[{"source":"marx","target":"marxism","label":"创立"},{"source":"engels","target":"marxism","label":"创立"},{"source":"marxism","target":"manifesto","label":"诞生标志"},{"source":"marxism","target":"worker_movement","label":"指导"},{"source":"marxism","target":"first_intl","label":"推动"},{"source":"paris_commune","target":"marxism","label":"实践"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -226,3 +226,4 @@
 </body>
 
 </html>
+

@@ -153,7 +153,7 @@
     <script id="data-keywords" type="application/json">[{"text":"古罗马","url":"detail_rome.html"},{"text":"基督教","url":"topic_christianity.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"fall_of_rome_event","label":"西罗马灭亡","val":30,"group":"core","url":"topic_rome_fall.html"},{"id":"barbarian_invasion","label":"蛮族入侵","val":25,"group":"cause","url":"topic_rome_fall.html"},{"id":"middle_ages","label":"中世纪","val":20,"group":"era","url":"detail_medieval_europe.html"}],"edges":[{"source":"barbarian_invasion","target":"fall_of_rome_event","label":"导致"},{"source":"fall_of_rome_event","target":"middle_ages","label":"开启"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

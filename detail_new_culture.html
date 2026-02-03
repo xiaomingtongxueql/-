@@ -266,7 +266,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"new_culture","label":"新文化运动","val":30,"group":"core","url":"detail_new_culture.html"},{"id":"chen","label":"陈独秀","val":25,"group":"person","url":"topic_chenduxiu.html"},{"id":"li","label":"李大钊","val":20,"group":"person","url":"topic_li_dazhao.html"},{"id":"lu","label":"鲁迅","val":20,"group":"person","url":"topic_lu_xun.html"},{"id":"hushi","label":"胡适","val":20,"group":"person","url":"topic_hu_shi.html"},{"id":"youth","label":"新青年","val":20,"group":"publication","url":"topic_new_youth.html"},{"id":"democracy","label":"民主与科学","val":25,"group":"concept","url":"topic_democracy_science.html"},{"id":"marxism","label":"马克思主义传播","val":25,"group":"ideology","url":"topic_li_dazhao.html"}],"edges":[{"source":"chen","target":"youth","label":"创办"},{"source":"youth","target":"new_culture","label":"开启"},{"source":"new_culture","target":"democracy","label":"口号"},{"source":"lu","target":"new_culture","label":"参与"},{"source":"li","target":"marxism","label":"宣传"},{"source":"hushi","target":"new_culture","label":"倡导白话"},{"source":"chen","target":"li","label":"并肩战斗"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -288,3 +288,4 @@
 </body>
 
 </html>
+

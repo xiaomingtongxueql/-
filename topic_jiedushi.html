@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"安史之乱","url":"topic_anshi_rebellion.html"},{"text":"唐朝","url":"detail_tang.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"jiedushi","label":"节度使","val":30,"group":"core","url":"topic_jiedushi.html"},{"id":"fanzhen","label":"藩镇","val":25,"group":"system","url":"topic_jiedushi.html"},{"id":"heshu","label":"河朔三镇","val":20,"group":"example","url":"topic_jiedushi.html"},{"id":"yabing","label":"牙兵","val":20,"group":"army","url":"topic_jiedushi.html"}],"edges":[{"source":"jiedushi","target":"fanzhen","label":"统治"},{"source":"heshu","target":"fanzhen","label":"典型"},{"source":"jiedushi","target":"yabing","label":"私兵"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

@@ -226,7 +226,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"qing","label":"清朝","val":35,"group":"core","url":"detail_qing.html"},{"id":"kangxi","label":"康熙","val":25,"group":"emperor","url":"topic_kangxi.html"},{"id":"yongzheng","label":"雍正","val":25,"group":"emperor","url":"topic_yongzheng.html"},{"id":"qianlong","label":"乾隆","val":25,"group":"emperor","url":"topic_qianlong.html"},{"id":"junjichu","label":"军机处","val":20,"group":"system","url":"topic_junjichu.html"},{"id":"bantu","label":"版图奠定","val":20,"group":"event","url":"topic_qing_territory.html"},{"id":"closed","label":"闭关锁国","val":15,"group":"policy","url":"topic_closed_door.html"},{"id":"honglou","label":"红楼梦","val":20,"group":"culture","url":"topic_hongloumeng.html"},{"id":"taiwan","label":"台湾","val":15,"group":"place","url":"topic_qing_territory.html"},{"id":"tibet","label":"西藏","val":15,"group":"place","url":"topic_qing_territory.html"}],"edges":[{"source":"kangxi","target":"qing","label":"开启盛世"},{"source":"yongzheng","target":"qing","label":"承上启下"},{"source":"qianlong","target":"qing","label":"极盛转衰"},{"source":"yongzheng","target":"junjichu","label":"设立"},{"source":"qing","target":"bantu","label":"巩固"},{"source":"bantu","target":"taiwan","label":"收复"},{"source":"bantu","target":"tibet","label":"辖制"},{"source":"qing","target":"closed","label":"实行"},{"source":"qing","target":"honglou","label":"文学高峰"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -248,3 +248,4 @@
 </body>
 
 </html>
+

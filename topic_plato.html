@@ -153,7 +153,7 @@
     <script id="data-keywords" type="application/json">[{"text":"苏格拉底","url":"topic_socrates.html"},{"text":"亚里士多德","url":"topic_aristotle.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"plato_phil","label":"柏拉图","val":30,"group":"core","url":"topic_plato.html"},{"id":"academy","label":"学园","val":20,"group":"place","url":"topic_plato.html"},{"id":"forms","label":"理念论","val":20,"group":"concept","url":"topic_plato.html"}],"edges":[{"source":"plato_phil","target":"academy","label":"创办"},{"source":"plato_phil","target":"forms","label":"提出"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

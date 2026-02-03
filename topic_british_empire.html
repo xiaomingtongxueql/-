@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -206,7 +206,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"uk","label":"大英帝国","val":35,"group":"core","url":"topic_british_empire.html"},{"id":"armada","label":"击败无敌舰队","val":25,"group":"event","url":"topic_armada.html"},{"id":"seven_years","label":"七年战争","val":25,"group":"event","url":"topic_seven_years_war.html"},{"id":"industrial","label":"工业革命","val":30,"group":"economy","url":"topic_industrial_rev.html"},{"id":"india","label":"殖民印度","val":30,"group":"location","url":"topic_india_raj.html"},{"id":"us","label":"北美殖民地","val":20,"group":"location","url":"topic_us_revolution.html"}],"edges":[{"source":"uk","target":"armada","label":"崛起"},{"source":"uk","target":"seven_years","label":"确立霸权"},{"source":"uk","target":"industrial","label":"支撑"},{"source":"uk","target":"india","label":"皇冠明珠"},{"source":"uk","target":"us","label":"失去"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

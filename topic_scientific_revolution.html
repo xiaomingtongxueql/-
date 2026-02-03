@@ -171,7 +171,7 @@
     <script id="data-keywords" type="application/json">[{"text":"文艺复兴","url":"detail_renaissance.html"},{"text":"人文主义","url":"topic_humanism.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"science","label":"科学革命","val":30,"group":"core","url":"topic_scientific_revolution.html"},{"id":"copernicus","label":"哥白尼","val":25,"group":"person","url":"topic_scientific_revolution.html"},{"id":"galileo","label":"伽利略","val":25,"group":"person","url":"topic_scientific_revolution.html"},{"id":"heliocentrism","label":"日心说","val":25,"group":"concept","url":"topic_scientific_revolution.html"}],"edges":[{"source":"copernicus","target":"heliocentrism","label":"提出"},{"source":"galileo","target":"heliocentrism","label":"证实"},{"source":"science","target":"heliocentrism","label":"核心议题"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

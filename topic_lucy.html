@@ -219,7 +219,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"lucy_core","label":"露西 (Lucy)","val":30,"group":"core","url":"topic_lucy.html"},{"id":"johanson","label":"约翰逊","val":20,"group":"person","url":"topic_johanson.html"},{"id":"hadar","label":"哈达尔","val":15,"group":"place","url":"topic_hadar.html"},{"id":"afarensis","label":"南方古猿","val":25,"group":"species","url":"topic_australopithecus.html"},{"id":"tree","label":"树栖习性","val":15,"group":"concept","url":"topic_arboreal.html"}],"edges":[{"source":"johanson","target":"lucy_core","label":"发现(1974)"},{"source":"lucy_core","target":"hadar","label":"出土于"},{"source":"lucy_core","target":"afarensis","label":"属于"},{"source":"lucy_core","target":"tree","label":"保留"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

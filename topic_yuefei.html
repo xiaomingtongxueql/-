@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"宋朝","url":"detail_song.html"},{"text":"秦桧","url":"detail_song.html"},{"text":"南宋","url":"topic_song_southern.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"yuefei","label":"岳飞","val":30,"group":"core","url":"topic_yuefei.html"},{"id":"yuejiajun","label":"岳家军","val":25,"group":"army","url":"topic_yuefei.html"},{"id":"qinhui","label":"秦桧","val":20,"group":"person","url":"topic_yuefei.html"},{"id":"manjianghong","label":"满江红","val":20,"group":"book","url":"topic_yuefei.html"},{"id":"gaozong","label":"宋高宗","val":20,"group":"emperor","url":"topic_yuefei.html"}],"edges":[{"source":"yuefei","target":"yuejiajun","label":"统帅"},{"source":"qinhui","target":"yuefei","label":"陷害"},{"source":"gaozong","target":"yuefei","label":"赐死"},{"source":"yuefei","target":"manjianghong","label":"作词"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

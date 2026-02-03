@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -263,7 +263,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"usa","label":"独立战争","x":50,"y":50,"type":"core","url":"detail_usa_indep.html"},{"id":"dec","label":"独立宣言","x":20,"y":30,"type":"normal","url":"topic_declaration.html"},{"id":"wash","label":"华盛顿","x":80,"y":30,"type":"normal","url":"topic_washington.html"},{"id":"const","label":"1787 宪法","x":50,"y":80,"type":"sub","url":"topic_federalism.html"},{"id":"sara","label":"萨拉托加","x":85,"y":70,"type":"sub","url":"topic_saratoga.html"}],"edges":[{"source":"usa","target":"dec"},{"source":"usa","target":"wash"},{"source":"usa","target":"const"},{"source":"usa","target":"sara"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const graphData = JSON.parse(document.getElementById('data-graph').textContent || '{}');
         if (typeof KnowledgeGraphEngine !== 'undefined') {

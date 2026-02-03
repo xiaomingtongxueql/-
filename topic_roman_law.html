@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"十二铜表法","url":"topic_twelve_tables.html"},{"text":"查士丁尼","url":"topic_justinian.html"},{"text":"古罗马","url":"detail_rome.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"roman_law_sys","label":"罗马法","val":30,"group":"core","url":"topic_roman_law.html"},{"id":"civil_law","label":"大陆法系","val":25,"group":"legacy","url":"topic_roman_law.html"},{"id":"property_rights","label":"私有财产","val":20,"group":"concept","url":"topic_roman_law.html"}],"edges":[{"source":"roman_law_sys","target":"civil_law","label":"奠基"},{"source":"roman_law_sys","target":"property_rights","label":"保护"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

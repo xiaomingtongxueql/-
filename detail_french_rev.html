@@ -217,7 +217,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"french_rev","label":"法国大革命","val":35,"group":"core","url":"detail_french_rev.html"},{"id":"bastille","label":"攻占巴士底狱","val":25,"group":"event","url":"topic_bastille.html"},{"id":"rights","label":"人权宣言","val":30,"group":"document","url":"topic_rights_of_man.html"},{"id":"republic","label":"第一共和国","val":25,"group":"period","url":"topic_robespierre.html"},{"id":"napoleon","label":"拿破仑","val":30,"group":"person","url":"topic_napoleon.html"},{"id":"empire","label":"第一帝国","val":25,"group":"period","url":"topic_napoleon.html"},{"id":"code","label":"拿破仑法典","val":30,"group":"law","url":"topic_napoleonic_code.html"},{"id":"rober","label":"罗伯斯庇尔","val":25,"group":"person","url":"topic_robespierre.html"},{"id":"enlightenment","label":"启蒙思想","val":20,"group":"concept","url":"detail_french_rev.html"}],"edges":[{"source":"enlightenment","target":"french_rev","label":"思想基础"},{"source":"bastille","target":"french_rev","label":"开端"},{"source":"french_rev","target":"rights","label":"纲领"},{"source":"french_rev","target":"republic","label":"建立"},{"source":"republic","target":"rober","label":"激进领袖"},{"source":"napoleon","target":"empire","label":"建立"},{"source":"napoleon","target":"code","label":"颁布"},{"source":"empire","target":"french_rev","label":"延续与传播"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -239,3 +239,4 @@
 </body>
 
 </html>
+

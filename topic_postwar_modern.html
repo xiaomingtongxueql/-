@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -256,7 +256,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"modern","label":"现代文明","x":50,"y":50,"type":"core","url":"detail_postwar_modern.html"},{"id":"indep","label":"非殖民化","x":20,"y":30,"type":"normal","url":"topic_bandung.html"},{"id":"it","label":"IT 革命","x":80,"y":30,"type":"normal","url":"topic_it_rev.html"},{"id":"glob","label":"全球性问题","x":50,"y":80,"type":"sub","url":"topic_globalization.html"},{"id":"multi","label":"多极化趋势","x":85,"y":70,"type":"sub","url":"topic_multi_polar.html"}],"edges":[{"source":"modern","target":"indep"},{"source":"modern","target":"it"},{"source":"modern","target":"glob"},{"source":"indep","target":"multi"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const graphData = JSON.parse(document.getElementById('data-graph').textContent || '{}');
         if (typeof KnowledgeGraphEngine !== 'undefined') {

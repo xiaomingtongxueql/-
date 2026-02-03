@@ -229,7 +229,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"yuan","label":"元朝","val":35,"group":"core", "url":"detail_yuan.html"},{"id":"genghis","label":"成吉思汗","val":20,"group":"person", "url":"topic_genghis.html"},{"id":"kublai","label":"忽必烈","val":25,"group":"emperor", "url":"topic_kublai.html"},{"id":"wen","label":"文天祥","val":20,"group":"person", "url":"topic_wentianxiang.html"},{"id":"xingsheng","label":"行省制","val":25,"group":"system", "url":"topic_xingsheng.html"},{"id":"xuanzhengyuan","label":"宣政院","val":20,"group":"system", "url":"topic_xingsheng.html"},{"id":"penghu","label":"澎湖巡检司","val":15,"group":"system", "url":"topic_xingsheng.html"},{"id":"guo","label":"郭守敬","val":20,"group":"scientist", "url":"topic_guoshoujing.html"},{"id":"guan","label":"关汉卿","val":20,"group":"artist", "url":"topic_guanhanqing.html"},{"id":"marco","label":"马可·波罗","val":15,"group":"person", "url":"topic_marcopolo.html"},{"id":"fourclass","label":"四等人制","val":20,"group":"system", "url":"topic_yuan_society.html"}],"edges":[{"source":"genghis","target":"yuan","label":"奠基"},{"source":"kublai","target":"yuan","label":"建立"},{"source":"wen","target":"yuan","label":"抗元"},{"source":"yuan","target":"xingsheng","label":"实行"},{"source":"xingsheng","target":"xuanzhengyuan","label":"辖西藏"},{"source":"xingsheng","target":"penghu","label":"辖台湾"},{"source":"kublai","target":"guo","label":"任用"},{"source":"guo","target":"yuan","label":"授时历"},{"source":"yuan","target":"guan","label":"元曲代表"},{"source":"kublai","target":"marco","label":"接见"},{"source":"yuan","target":"fourclass","label":"政策"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -251,3 +251,4 @@
 </body>
 
 </html>
+

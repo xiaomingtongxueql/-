@@ -161,7 +161,7 @@
     <script id="data-keywords" type="application/json">[{"text":"李白","url":"topic_libai.html"},{"text":"安史之乱","url":"topic_anshi_rebellion.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"dufu","label":"杜甫","val":30,"group":"core","url":"topic_dufu.html"},{"id":"shisheng","label":"诗圣","val":25,"group":"title","url":"topic_dufu.html"},{"id":"shishi","label":"诗史","val":20,"group":"concept","url":"topic_dufu.html"},{"id":"caotang","label":"杜甫草堂","val":20,"group":"place","url":"topic_dufu.html"}],"edges":[{"source":"dufu","target":"shisheng","label":"尊称"},{"source":"dufu","target":"shishi","label":"美誉"},{"source":"dufu","target":"caotang","label":"寓居"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -197,3 +197,4 @@
 </body>
 
 </html>
+

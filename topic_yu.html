@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"炎黄传说","url":"detail_legends.html"},{"text":"禅让制","url":"topic_chanrang.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"yu_core","label":"大禹","val":30,"group":"core","url":"topic_yu.html"},{"id":"xia","label":"夏朝","val":25,"group":"civ","url":"topic_xia.html"},{"id":"water","label":"治水","val":20,"group":"event","url":"topic_yu.html"}],"edges":[{"source":"yu_core","target":"xia","label":"建立"},{"source":"yu_core","target":"water","label":"领导"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

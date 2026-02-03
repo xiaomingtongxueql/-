@@ -153,7 +153,7 @@
     <script id="data-keywords" type="application/json">[{"text":"基督教","url":"topic_christianity.html"},{"text":"罗马帝国","url":"detail_rome.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"constantine_emp","label":"君士坦丁","val":30,"group":"core","url":"topic_constantine.html"},{"id":"new_rome","label":"君士坦丁堡","val":25,"group":"place","url":"topic_constantine.html"},{"id":"nicene_council","label":"尼西亚会议","val":20,"group":"event","url":"topic_constantine.html"}],"edges":[{"source":"constantine_emp","target":"new_rome","label":"建立"},{"source":"constantine_emp","target":"nicene_council","label":"主持"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

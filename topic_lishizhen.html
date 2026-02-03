@@ -210,7 +210,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"lishizhen","label":"李时珍","val":35,"group":"core","url":"topic_lishizhen.html"},{"id":"bencao","label":"本草纲目","val":30,"group":"work","url":"topic_bencao.html"},{"id":"medicine","label":"中医药","val":25,"group":"field","url":"topic_tcm.html"},{"id":"taxonomy","label":"分类学","val":20,"group":"concept","url":"topic_taxonomy.html"},{"id":"shennong","label":"神农本草经","val":15,"group":"work","url":"topic_shennong.html"}],"edges":[{"source":"lishizhen","target":"bencao","label":"编撰"},{"source":"lishizhen","target":"medicine","label":"贡献"},{"source":"bencao","target":"taxonomy","label":"创新"},{"source":"bencao","target":"shennong","label":"继承发展"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

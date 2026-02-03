@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"春秋战国","url":"detail_warring.html"},{"text":"商鞅变法","url":"topic_shangyang.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"iron_tech","label":"铁器","val":30,"group":"technology","url":"topic_iron_cattle.html"},{"id":"ox_tech","label":"牛耕","val":30,"group":"technology","url":"topic_iron_cattle.html"},{"id":"dujiangyan_project","label":"都江堰","val":25,"group":"project","url":"topic_iron_cattle.html"},{"id":"libing","label":"李冰","val":20,"group":"person","url":"topic_iron_cattle.html"}],"edges":[{"source":"ox_tech","target":"iron_tech","label":"结合"},{"source":"libing","target":"dujiangyan_project","label":"修建"},{"source":"dujiangyan_project","target":"iron_tech","label":"基础"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

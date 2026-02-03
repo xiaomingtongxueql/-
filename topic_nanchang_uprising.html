@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -190,7 +190,7 @@
     </script>
 
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
 
         // 渲染关联词条
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');

@@ -231,7 +231,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"neander_core","label":"尼安德特人","val":30,"group":"core","url":"topic_neanderthal.html"},{"id":"mousterian","label":"莫斯特技术","val":20,"group":"tech","url":"topic_mousterian.html"},{"id":"sapiens","label":"智人","val":25,"group":"species","url":"topic_sapiens.html"},{"id":"dna","label":"基因交流","val":25,"group":"concept","url":"topic_dna.html"},{"id":"shanidar","label":"沙尼达尔","val":15,"group":"place","url":"topic_shanidar.html"}],"edges":[{"source":"neander_core","target":"mousterian","label":"创造"},{"source":"neander_core","target":"sapiens","label":"平行演化"},{"source":"sapiens","target":"dna","label":"继承基因"},{"source":"neander_core","target":"shanidar","label":"葬礼证据"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

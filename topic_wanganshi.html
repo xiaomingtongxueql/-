@@ -161,7 +161,7 @@
     <script id="data-keywords" type="application/json">[{"text":"宋朝","url":"detail_song.html"},{"text":"苏轼","url":"topic_sushi.html"},{"text":"宋神宗","url":"detail_song.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"wang","label":"王安石","val":30,"group":"core","url":"topic_wanganshi.html"},{"id":"reform","label":"熙宁变法","val":25,"group":"event","url":"topic_wanganshi.html"},{"id":"simaguang","label":"司马光","val":20,"group":"person","url":"topic_wanganshi.html"},{"id":"shenzong","label":"宋神宗","val":20,"group":"emperor","url":"topic_wanganshi.html"},{"id":"qingmiao","label":"青苗法","val":20,"group":"law","url":"topic_wanganshi.html"}],"edges":[{"source":"wang","target":"reform","label":"主持"},{"source":"simaguang","target":"reform","label":"反对"},{"source":"shenzong","target":"wang","label":"支持"},{"source":"reform","target":"qingmiao","label":"内容"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -197,3 +197,4 @@
 </body>
 
 </html>
+

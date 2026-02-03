@@ -161,7 +161,7 @@
     <script id="data-keywords" type="application/json">[{"text":"宋朝","url":"detail_song.html"},{"text":"王安石","url":"topic_wanganshi.html"},{"text":"中央集权","url":"detail_song.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"taizu","label":"宋太祖","val":30,"group":"core","url":"topic_songtaizu.html"},{"id":"chenqiao","label":"陈桥兵变","val":25,"group":"event","url":"topic_songtaizu.html"},{"id":"beijiu","label":"杯酒释兵权","val":25,"group":"event","url":"topic_songtaizu.html"},{"id":"zhaopu","label":"赵普","val":20,"group":"person","url":"topic_songtaizu.html"},{"id":"centralization","label":"中央集权","val":20,"group":"system","url":"topic_songtaizu.html"}],"edges":[{"source":"taizu","target":"chenqiao","label":"发动"},{"source":"taizu","target":"beijiu","label":"策划"},{"source":"taizu","target":"zhaopu","label":"重用"},{"source":"taizu","target":"centralization","label":"加强"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -197,3 +197,4 @@
 </body>
 
 </html>
+

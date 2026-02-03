@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -250,7 +250,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"asia","label":"中古亚洲","x":50,"y":50,"type":"core","url":"detail_medieval_asia.html"},{"id":"japan","label":"大化改新","x":20,"y":30,"type":"normal","url":"detail_medieval_asia.html"},{"id":"arab","label":"阿拉伯帝国","x":80,"y":30,"type":"normal","url":"detail_medieval_asia.html"},{"id":"bridge","label":"文明桥梁","x":50,"y":80,"type":"sub","url":"detail_medieval_asia.html"},{"id":"wisdom","label":"巴格达智慧宫","x":85,"y":70,"type":"sub"}],"edges":[{"source":"asia","target":"japan"},{"source":"asia","target":"arab"},{"source":"asia","target":"bridge"},{"source":"arab","target":"wisdom"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const graphData = JSON.parse(document.getElementById('data-graph').textContent || '{}');
         if (typeof KnowledgeGraphEngine !== 'undefined') {

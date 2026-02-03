@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"隋炀帝","url":"topic_suiyangdi.html"},{"text":"隋朝","url":"detail_sui.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"keju","label":"科举制","val":30,"group":"core","url":"topic_keju.html"},{"id":"jinshi","label":"进士科","val":25,"group":"exam","url":"topic_keju.html"},{"id":"meritocracy","label":"唯才是举","val":20,"group":"concept","url":"topic_keju.html"}],"edges":[{"source":"keju","target":"jinshi","label":"核心科目"},{"source":"keju","target":"meritocracy","label":"精神"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

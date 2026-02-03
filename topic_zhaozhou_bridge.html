@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"大运河","url":"topic_grand_canal.html"},{"text":"隋朝","url":"detail_sui.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"zhaozhou_bridge","label":"赵州桥","val":30,"group":"core","url":"topic_zhaozhou_bridge.html"},{"id":"li_chun","label":"李春","val":25,"group":"person","url":"topic_zhaozhou_bridge.html"},{"id":"open_spandrel","label":"敞肩拱","val":20,"group":"tech","url":"topic_zhaozhou_bridge.html"}],"edges":[{"source":"li_chun","target":"zhaozhou_bridge","label":"建造"},{"source":"zhaozhou_bridge","target":"open_spandrel","label":"特点"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

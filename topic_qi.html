@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"世袭制","url":"topic_hereditary.html"},{"text":"夏朝","url":"detail_xia.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"qi_person","label":"夏启","val":30,"group":"core","url":"topic_qi.html"},{"id":"youhu","label":"有扈氏","val":15,"group":"person","url":"topic_qi.html"},{"id":"juntai","label":"钧台","val":15,"group":"place","url":"topic_qi.html"}],"edges":[{"source":"qi_person","target":"youhu","label":"讨伐"},{"source":"qi_person","target":"juntai","label":"会盟"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

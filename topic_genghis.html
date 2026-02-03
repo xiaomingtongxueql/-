@@ -161,7 +161,7 @@
     <script id="data-keywords" type="application/json">[{"text":"元朝","url":"detail_yuan.html"},{"text":"忽必烈","url":"topic_kublai.html"},{"text":"行省制","url":"topic_xingsheng.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"genghis","label":"成吉思汗","val":30,"group":"core","url":"topic_genghis.html"},{"id":"mengu","label":"大蒙古国","val":25,"group":"event","url":"topic_genghis.html"},{"id":"xizheng","label":"西征","val":25,"group":"event","url":"topic_genghis.html"},{"id":"qianhu","label":"千户制","val":20,"group":"system","url":"topic_genghis.html"},{"id":"yassa","label":"大札撒","val":15,"group":"law","url":"topic_genghis.html"}],"edges":[{"source":"genghis","target":"mengu","label":"建立"},{"source":"genghis","target":"xizheng","label":"发动"},{"source":"genghis","target":"qianhu","label":"创立"},{"source":"genghis","target":"yassa","label":"颁布"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -197,3 +197,4 @@
 </body>
 
 </html>
+

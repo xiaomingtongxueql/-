@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"宋朝","url":"detail_song.html"},{"text":"商业革命","url":"topic_commerce.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"tech","label":"三大发明","val":30,"group":"core","url":"topic_tech_song.html"},{"id":"bisheng","label":"毕昇","val":25,"group":"person","url":"topic_tech_song.html"},{"id":"compass","label":"指南针","val":25,"group":"object","url":"topic_tech_song.html"},{"id":"powder","label":"火药","val":25,"group":"object","url":"topic_tech_song.html"},{"id":"shenkuo","label":"沈括","val":20,"group":"person","url":"topic_tech_song.html"}],"edges":[{"source":"bisheng","target":"tech","label":"活字印刷"},{"source":"compass","target":"tech","label":"航海应用"},{"source":"powder","target":"tech","label":"军事应用"},{"source":"shenkuo","target":"tech","label":"记载"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

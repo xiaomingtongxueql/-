@@ -172,7 +172,7 @@
     <script id="data-keywords" type="application/json">[{"text":"两河流域","url":"detail_mesopotamia.html"},{"text":"汉谟拉比法典","url":"topic_hammurabi.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"babylon_core","label":"巴比伦","val":30,"group":"core","url":"topic_babylon.html"},{"id":"hammurabi","label":"汉谟拉比","val":25,"group":"king","url":"topic_hammurabi.html"},{"id":"nebu","label":"尼布甲尼撒二世","val":25,"group":"king","url":"topic_nebuchadnezzar.html"},{"id":"marduk","label":"马尔杜克","val":20,"group":"god","url":"topic_marduk.html"},{"id":"garden","label":"空中花园","val":20,"group":"wonder","url":"topic_hanging_gardens.html"}],"edges":[{"source":"hammurabi","target":"babylon_core","label":"建都"},{"source":"nebu","target":"babylon_core","label":"重建"},{"source":"nebu","target":"garden","label":"建造"},{"source":"babylon_core","target":"marduk","label":"崇拜"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -194,3 +194,4 @@
 </body>
 
 </html>
+

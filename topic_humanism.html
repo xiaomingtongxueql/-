@@ -171,7 +171,7 @@
     <script id="data-keywords" type="application/json">[{"text":"文艺复兴","url":"detail_renaissance.html"},{"text":"但丁","url":"topic_dante.html"},{"text":"宗教改革","url":"topic_reformation.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"humanism","label":"人文主义","val":30,"group":"core","url":"topic_humanism.html"},{"id":"petrarch","label":"彼特拉克","val":25,"group":"person","url":"topic_humanism.html"},{"id":"boccaccio","label":"薄伽丘","val":25,"group":"person","url":"topic_humanism.html"},{"id":"freedom","label":"思想解放","val":20,"group":"impact","url":"topic_humanism.html"}],"edges":[{"source":"petrarch","target":"humanism","label":"创立"},{"source":"boccaccio","target":"humanism","label":"发扬"},{"source":"humanism","target":"freedom","label":"导致"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

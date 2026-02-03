@@ -161,7 +161,7 @@
     <script id="data-keywords" type="application/json">[{"text":"秦始皇","url":"topic_yingzheng.html"},{"text":"郡县制","url":"topic_junxian.html"},{"text":"小篆","url":"topic_xiaozhuan.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"lisi_pm","label":"李斯","val":30,"group":"core","url":"topic_lisi.html"},{"id":"junxian_sys","label":"郡县制","val":25,"group":"concept","url":"topic_junxian.html"},{"id":"zhuke","label":"谏逐客书","val":20,"group":"event","url":"topic_lisi.html"}],"edges":[{"source":"lisi_pm","target":"junxian_sys","label":"力推"},{"source":"lisi_pm","target":"zhuke","label":"上书"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -197,3 +197,4 @@
 </body>
 
 </html>
+

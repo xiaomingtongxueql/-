@@ -165,7 +165,7 @@
     <script id="data-keywords" type="application/json">[{"text":"十一届三中全会","url":"topic_third_plenary.html"},{"text":"邓小平","url":"topic_dengxiaoping.html"},{"text":"深圳特区","url":"topic_shenzhen.html"},{"text":"WTO","url":"topic_wto.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"reform","label":"改革开放","val":30,"group":"core","url":"detail_reform_open.html"},{"id":"deng","label":"邓小平","val":25,"group":"person","url":"topic_dengxiaoping.html"},{"id":"shenzhen","label":"深圳特区","val":20,"group":"place","url":"topic_shenzhen.html"},{"id":"plenary","label":"三中全会","val":20,"group":"event","url":"topic_third_plenary.html"},{"id":"wto","label":"入世","val":20,"group":"event","url":"topic_wto.html"}],"edges":[{"source":"deng","target":"reform","label":"总设计师"},{"source":"plenary","target":"reform","label":"序幕"},{"source":"reform","target":"shenzhen","label":"窗口"},{"source":"reform","target":"wto","label":"深化"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -187,3 +187,4 @@
 </body>
 
 </html>
+

@@ -153,7 +153,7 @@
     <script id="data-keywords" type="application/json">[{"text":"恺撒","url":"topic_caesar.html"},{"text":"罗马帝国","url":"detail_rome.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"augustus_great","label":"奥古斯都","val":30,"group":"core","url":"topic_augustus.html"},{"id":"principate_sys","label":"元首制","val":25,"group":"policy","url":"topic_augustus.html"},{"id":"actium","label":"阿克提姆海战","val":20,"group":"event","url":"topic_augustus.html"}],"edges":[{"source":"augustus_great","target":"principate_sys","label":"创立"},{"source":"augustus_great","target":"actium","label":"获胜"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

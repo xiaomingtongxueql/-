@@ -172,7 +172,7 @@
     <script id="data-keywords" type="application/json">[{"text":"裴文中","url":"topic_pei_wenzhong.html"},{"text":"山顶洞人","url":"topic_upper_cave_man.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"peking_topic","label":"北京人","val":30,"group":"core","url":"topic_peking_man.html"},{"id":"erectus","label":"直立人","val":25,"group":"species","url":"detail_primitive.html"},{"id":"tools","label":"旧石器","val":20,"group":"tech","url":"topic_stone_tools_china.html"},{"id":"fire","label":"天然火","val":20,"group":"skill","url":"topic_fire_china.html"}],"edges":[{"source":"peking_topic","target":"erectus","label":"归属"},{"source":"peking_topic","target":"tools","label":"使用"},{"source":"peking_topic","target":"fire","label":"掌握"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -194,3 +194,4 @@
 </body>
 
 </html>
+

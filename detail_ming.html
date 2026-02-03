@@ -255,7 +255,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"ming","label":"明朝","val":35,"group":"core","url":"detail_ming.html"},{"id":"zhu","label":"朱元璋","val":25,"group":"emperor","url":"topic_zhu_yuanzhang.html"},{"id":"chengzu","label":"明成祖","val":25,"group":"emperor","url":"topic_yongle.html"},{"id":"zhenghe","label":"郑和","val":20,"group":"person","url":"topic_zheng_he.html"},{"id":"wang","label":"王阳明","val":20,"group":"philosopher","url":"topic_wangyangming.html"},{"id":"qijiguang","label":"戚继光","val":20,"group":"general","url":"topic_qijiguang.html"},{"id":"lizicheng","label":"李自成","val":20,"group":"rebel","url":"topic_lizicheng.html"},{"id":"neige","label":"内阁制","val":20,"group":"system","url":"topic_neige.html"},{"id":"xinxue","label":"心学","val":15,"group":"thought","url":"topic_wangyangming.html"},{"id":"tech","label":"科技巨著","val":15,"group":"tech","url":"topic_ming_tech.html"}],"edges":[{"source":"zhu","target":"ming","label":"建立"},{"source":"zhu","target":"neige","label":"废丞相"},{"source":"chengzu","target":"neige","label":"设内阁"},{"source":"chengzu","target":"zhenghe","label":"下西洋"},{"source":"wang","target":"xinxue","label":"创立"},{"source":"qijiguang","target":"ming","label":"抗倭"},{"source":"ming","target":"tech","label":"总结性"},{"source":"lizicheng","target":"ming","label":"灭亡"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -277,3 +277,4 @@
 </body>
 
 </html>
+

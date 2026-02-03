@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -206,7 +206,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"lizicheng","label":"李自成","val":35,"group":"core","url":"topic_lizicheng.html"},{"id":"ming","label":"明朝","val":25,"group":"dynasty","url":"detail_ming.html"},{"id":"wusangui","label":"吴三桂","val":25,"group":"person","url":"topic_wusangui.html"},{"id":"dashun","label":"大顺政权","val":20,"group":"regime","url":"topic_dashun.html"},{"id":"juntian","label":"均田免赋","val":20,"group":"concept","url":"topic_juntian.html"}],"edges":[{"source":"lizicheng","target":"ming","label":"推翻"},{"source":"lizicheng","target":"dashun","label":"建立"},{"source":"lizicheng","target":"juntian","label":"提出"},{"source":"wusangui","target":"lizicheng","label":"击败"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

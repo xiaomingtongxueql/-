@@ -226,7 +226,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"tang","label":"唐朝","val":35,"group":"core", "url":"detail_tang.html"},{"id":"taizong","label":"唐太宗","val":25,"group":"emperor", "url":"topic_lishimin.html"},{"id":"wu","label":"武则天","val":25,"group":"emperor", "url":"topic_wuzetian.html"},{"id":"xuanzong","label":"唐玄宗","val":25,"group":"emperor", "url":"topic_lixuanzong.html"},{"id":"libai","label":"李白","val":20,"group":"poet", "url":"topic_libai.html"},{"id":"dufu","label":"杜甫","val":20,"group":"poet", "url":"topic_dufu.html"},{"id":"sansheng","label":"三省六部","val":20,"group":"system", "url":"topic_sansheng.html"},{"id":"keju","label":"科举制","val":20,"group":"system", "url":"topic_keju.html"},{"id":"anshi","label":"安史之乱","val":25,"group":"event", "url":"topic_anshi_rebellion.html"},{"id":"jiedushi","label":"节度使","val":15,"group":"system", "url":"topic_jiedushi.html"},{"id":"xuanzang","label":"玄奘西行","val":20,"group":"culture", "url":"topic_xuanzang.html"},{"id":"envoys","label":"遣唐使","val":20,"group":"culture", "url":"topic_envoys.html"},{"id":"chang_an","label":"长安城","val":22,"group":"place", "url":"topic_chang_an.html"}],"edges":[{"source":"taizong","target":"tang","label":"贞观之治"},{"source":"wu","target":"tang","label":"治宏贞观"},{"source":"xuanzong","target":"tang","label":"开元盛世"},{"source":"tang","target":"sansheng","label":"完善"},{"source":"tang","target":"keju","label":"完善"},{"source":"xuanzong","target":"anshi","label":"导致"},{"source":"anshi","target":"tang","label":"转衰"},{"source":"anshi","target":"jiedushi","label":"藩镇割据"},{"source":"xuanzong","target":"libai","label":"赏识"},{"source":"tang","target":"xuanzang","label":"文化"},{"source":"tang","target":"envoys","label":"外交"},{"source":"tang","target":"chang_an","label":"都城"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -248,3 +248,4 @@
 </body>
 
 </html>
+

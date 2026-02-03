@@ -207,7 +207,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"junjichu","label":"军机处","val":35,"group":"core","url":"topic_junjichu.html"},{"id":"yongzheng","label":"雍正帝","val":30,"group":"emperor","url":"topic_yongzheng.html"},{"id":"neige","label":"内阁","val":25,"group":"system","url":"topic_neige.html"},{"id":"yizheng","label":"议政王大会","val":20,"group":"system","url":"topic_junjichu.html"},{"id":"tingji","label":"廷寄","val":20,"group":"policy","url":"topic_junjichu.html"}],"edges":[{"source":"yongzheng","target":"junjichu","label":"设立"},{"source":"junjichu","target":"neige","label":"架空"},{"source":"junjichu","target":"yizheng","label":"取代"},{"source":"junjichu","target":"tingji","label":"下达"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

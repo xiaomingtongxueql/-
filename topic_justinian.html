@@ -153,7 +153,7 @@
     <script id="data-keywords" type="application/json">[{"text":"罗马法","url":"topic_roman_law.html"},{"text":"罗马帝国","url":"detail_rome.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"justinian_i","label":"查士丁尼","val":30,"group":"core","url":"topic_justinian.html"},{"id":"corpus_juris","label":"民法大全","val":25,"group":"law","url":"topic_roman_law.html"},{"id":"hagia_sophia_church","label":"圣索菲亚","val":20,"group":"place","url":"topic_justinian.html"}],"edges":[{"source":"justinian_i","target":"corpus_juris","label":"编纂"},{"source":"justinian_i","target":"hagia_sophia_church","label":"建造"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

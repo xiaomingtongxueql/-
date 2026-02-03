@@ -224,7 +224,7 @@
         type="application/json">{"nodes":[{"id":"discovery","label":"新航路开辟","val":30,"group":"core","url":"detail_global_navigation.html"},{"id":"portugal","label":"葡萄牙","val":20,"group":"location","url":"topic_portugal_empire.html"},{"id":"spain","label":"西班牙","val":20,"group":"location","url":"topic_spain_empire.html"},{"id":"columbus","label":"哥伦布","val":15,"group":"person","url":"topic_columbus.html"},{"id":"magellan","label":"麦哲伦","val":15,"group":"person","url":"topic_magellan.html"},{"id":"da_gama","label":"达·伽马","val":15,"group":"person","url":"topic_da_gama.html"},{"id":"exchange","label":"物种交换","val":20,"group":"impact","url":"topic_columbian_exchange.html"},{"id":"market","label":"世界市场","val":25,"group":"impact","url":"topic_world_market.html"},{"id":"colonialism","label":"殖民扩张","val":20,"group":"impact","url":"topic_triangular_trade.html"}],"edges":[{"source":"portugal","target":"discovery","label":"主导"},{"source":"spain","target":"discovery","label":"主导"},{"source":"columbus","target":"spain","label":"资助"},{"source":"columbus","target":"discovery","label":"发现美洲"},{"source":"magellan","target":"discovery","label":"环球航行"},{"source":"discovery","target":"exchange","label":"引发"},{"source":"discovery","target":"market","label":"雏形"},{"source":"discovery","target":"colonialism","label":"开启"}]}</script>
 
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -246,3 +246,4 @@
 </body>
 
 </html>
+

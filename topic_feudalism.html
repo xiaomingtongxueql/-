@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"基督教会","url":"topic_church.html"},{"text":"中世纪欧洲","url":"detail_medieval_europe.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"feudalism","label":"封建制度","val":30,"group":"core","url":"topic_feudalism.html"},{"id":"vassal","label":"附庸","val":25,"group":"role","url":"topic_feudalism.html"},{"id":"fief","label":"采邑","val":20,"group":"concept","url":"topic_feudalism.html"}],"edges":[{"source":"feudalism","target":"vassal","label":"核心"},{"source":"vassal","target":"fief","label":"获得"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -195,7 +195,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"jenny","label":"珍妮机","val":35,"group":"core","url":"topic_jenny.html"},{"id":"hargreaves","label":"哈格里夫斯","val":25,"group":"person","url":"topic_jenny.html"},{"id":"cotton","label":"棉纺织业","val":30,"group":"industry","url":"topic_jenny.html"},{"id":"factory","label":"工厂制","val":25,"group":"concept","url":"topic_factory_system.html"},{"id":"luddite","label":"卢德运动","val":20,"group":"event","url":"topic_urbanization.html"}],"edges":[{"source":"hargreaves","target":"jenny","label":"发明"},{"source":"jenny","target":"cotton","label":"革命起点"},{"source":"jenny","target":"factory","label":"催生"},{"source":"jenny","target":"luddite","label":"引发反抗"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

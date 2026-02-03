@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"汉朝","url":"detail_han.html"},{"text":"张骞","url":"topic_zhangqian.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"paper_invention","label":"造纸术","val":30,"group":"core","url":"topic_papermaking.html"},{"id":"cailun","label":"蔡伦","val":25,"group":"person","url":"topic_papermaking.html"},{"id":"culture_spread","label":"文化传播","val":20,"group":"concept","url":"topic_papermaking.html"}],"edges":[{"source":"cailun","target":"paper_invention","label":"改进"},{"source":"paper_invention","target":"culture_spread","label":"促进"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

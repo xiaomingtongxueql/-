@@ -161,7 +161,7 @@
     <script id="data-keywords" type="application/json">[{"text":"九品中正制","url":"topic_jiupin.html"},{"text":"魏晋南北朝","url":"detail_weijin.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"seven_sages","label":"竹林七贤","val":30,"group":"core","url":"topic_zhulin.html"},{"id":"ji_kang","label":"嵇康","val":25,"group":"person","url":"topic_zhulin.html"},{"id":"ruan_ji","label":"阮籍","val":25,"group":"person","url":"topic_zhulin.html"},{"id":"metaphysics","label":"玄学","val":20,"group":"concept","url":"topic_zhulin.html"}],"edges":[{"source":"ji_kang","target":"seven_sages","label":"领袖"},{"source":"ruan_ji","target":"seven_sages","label":"成员"},{"source":"seven_sages","target":"metaphysics","label":"弘扬"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -197,3 +197,4 @@
 </body>
 
 </html>
+

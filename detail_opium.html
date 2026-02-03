@@ -239,7 +239,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"opium_war","label":"鸦片战争","val":35,"group":"core", "url":"detail_opium.html"},{"id":"trade","label":"贸易逆差","val":20,"group":"cause", "url":"detail_opium.html"},{"id":"opium","label":"鸦片走私","val":20,"group":"cause", "url":"topic_humen.html"},{"id":"lin","label":"林则徐","val":30,"group":"person", "url":"topic_linzexu.html"},{"id":"humen","label":"虎门销烟","val":30,"group":"event", "url":"topic_humen.html"},{"id":"uk","label":"英国远征军","val":20,"group":"force", "url":"detail_opium.html"},{"id":"qing","label":"清政府","val":20,"group":"force", "url":"detail_opium.html"},{"id":"nanjing","label":"南京条约","val":30,"group":"treaty", "url":"topic_nanjing_treaty.html"},{"id":"hk","label":"香港岛","val":20,"group":"territory", "url":"topic_nanjing_treaty.html"},{"id":"semi","label":"半殖民地","val":25,"group":"concept", "url":"topic_nanjing_treaty.html"},{"id":"wei","label":"魏源","val":25,"group":"person", "url":"topic_weiyuan.html"}],"edges":[{"source":"trade","target":"opium","label":"导致"},{"source":"lin","target":"humen","label":"主持"},{"source":"humen","target":"opium_war","label":"导火索"},{"source":"uk","target":"opium_war","label":"发动"},{"source":"qing","target":"opium_war","label":"战败"},{"source":"opium_war","target":"nanjing","label":"结果"},{"source":"nanjing","target":"hk","label":"割让"},{"source":"nanjing","target":"semi","label":"开启"},{"source":"opium_war","target":"wei","label":"反思"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -261,3 +261,4 @@
 </body>
 
 </html>
+

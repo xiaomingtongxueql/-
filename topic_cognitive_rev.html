@@ -234,7 +234,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"cog_rev","label":"认知革命","val":30,"group":"core","url":"topic_cognitive_rev.html"},{"id":"fiction","label":"虚构能力","val":25,"group":"concept","url":"topic_fiction.html"},{"id":"coop","label":"大规模合作","val":25,"group":"impact","url":"topic_cooperation.html"},{"id":"harari","label":"赫拉利","val":15,"group":"person","url":"topic_harari.html"},{"id":"dunbar","label":"邓巴数","val":20,"group":"concept","url":"topic_dunbar.html"}],"edges":[{"source":"cog_rev","target":"fiction","label":"核心特征"},{"source":"fiction","target":"coop","label":"促成"},{"source":"harari","target":"cog_rev","label":"阐述"},{"source":"coop","target":"dunbar","label":"突破"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

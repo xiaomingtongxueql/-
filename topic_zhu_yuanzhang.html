@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -211,7 +211,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"zhu","label":"朱元璋","val":35,"group":"core","url":"topic_zhu_yuanzhang.html"},{"id":"ming","label":"大明王朝","val":30,"group":"dynasty","url":"detail_ming.html"},{"id":"hu","label":"胡惟庸案","val":20,"group":"event","url":"topic_hu_weiyong.html"},{"id":"lan","label":"蓝玉案","val":20,"group":"event","url":"topic_lan_yu.html"},{"id":"neige","label":"废相设阁","val":25,"group":"system","url":"topic_neige.html"},{"id":"jinyiwei","label":"锦衣卫","val":20,"group":"system","url":"topic_jinyiwei.html"},{"id":"lijia","label":"里甲制","val":15,"group":"system","url":"topic_lijia.html"}],"edges":[{"source":"zhu","target":"ming","label":"建立"},{"source":"zhu","target":"hu","label":"发动"},{"source":"zhu","target":"lan","label":"发动"},{"source":"zhu","target":"neige","label":"制度变革"},{"source":"zhu","target":"jinyiwei","label":"设立"},{"source":"zhu","target":"lijia","label":"推行"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

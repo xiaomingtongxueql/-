@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -197,7 +197,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"rights","label":"人权宣言","val":35,"group":"core","url":"topic_rights_of_man.html"},{"id":"french_rev","label":"法国大革命","val":30,"group":"event","url":"detail_french_rev.html"},{"id":"lafayette","label":"拉法耶特","val":25,"group":"person","url":"topic_rights_of_man.html"},{"id":"enlightenment","label":"启蒙思想","val":25,"group":"concept","url":"detail_french_rev.html"},{"id":"property","label":"私有财产","val":20,"group":"concept","url":"topic_rights_of_man.html"}],"edges":[{"source":"lafayette","target":"rights","label":"起草"},{"source":"french_rev","target":"rights","label":"纲领"},{"source":"enlightenment","target":"rights","label":"思想来源"},{"source":"rights","target":"property","label":"保护"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

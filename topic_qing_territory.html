@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -207,7 +207,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"bantu","label":"清朝版图","val":35,"group":"core","url":"topic_qing_territory.html"},{"id":"taiwan","label":"台湾","val":25,"group":"place","url":"topic_qing_territory.html"},{"id":"xinjiang","label":"新疆","val":25,"group":"place","url":"topic_qing_territory.html"},{"id":"tibet","label":"西藏","val":25,"group":"place","url":"topic_qing_territory.html"},{"id":"yili","label":"伊犁将军","val":20,"group":"system","url":"topic_qing_territory.html"},{"id":"jinping","label":"金瓶掣签","val":20,"group":"system","url":"topic_qing_territory.html"}],"edges":[{"source":"bantu","target":"taiwan","label":"设府"},{"source":"bantu","target":"xinjiang","label":"设府"},{"source":"bantu","target":"tibet","label":"驻扎"},{"source":"xinjiang","target":"yili","label":"统辖"},{"source":"tibet","target":"jinping","label":"认定"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

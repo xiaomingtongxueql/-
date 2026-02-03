@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"春秋战国","url":"detail_warring.html"},{"text":"战国七雄","url":"topic_seven_states.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"chunqiu_era","label":"春秋五霸","val":30,"group":"core","url":"topic_spring_autumn.html"},{"id":"huan_duke","label":"齐桓公","val":20,"group":"person","url":"topic_spring_autumn.html"},{"id":"wen_duke","label":"晋文公","val":20,"group":"person","url":"topic_spring_autumn.html"},{"id":"zunwang","label":"尊王攘夷","val":20,"group":"concept","url":"topic_spring_autumn.html"}],"edges":[{"source":"chunqiu_era","target":"huan_duke","label":"在位"},{"source":"huan_duke","target":"zunwang","label":"口号"},{"source":"chunqiu_era","target":"wen_duke","label":"在位"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

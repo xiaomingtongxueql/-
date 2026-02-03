@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -196,7 +196,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"constitution","label":"1787宪法","val":35,"group":"core","url":"topic_constitution_1787.html"},{"id":"madison","label":"麦迪逊","val":30,"group":"person","url":"topic_constitution_1787.html"},{"id":"federalism","label":"联邦制","val":25,"group":"concept","url":"topic_constitution_1787.html"},{"id":"check_balance","label":"三权分立","val":25,"group":"concept","url":"topic_separation_powers.html"},{"id":"bill_of_rights","label":"权利法案","val":20,"group":"document","url":"topic_constitution_1787.html"}],"edges":[{"source":"madison","target":"constitution","label":"宪法之父"},{"source":"constitution","target":"federalism","label":"确立"},{"source":"constitution","target":"check_balance","label":"核心原则"},{"source":"constitution","target":"bill_of_rights","label":"补充"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

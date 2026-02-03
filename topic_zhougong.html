@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"礼乐制度","url":"topic_liyue.html"},{"text":"西周","url":"detail_zhou.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"duke_zhou","label":"周公","val":30,"group":"core","url":"topic_zhougong.html"},{"id":"ritual_sys","label":"礼乐制度","val":25,"group":"system","url":"topic_liyue.html"},{"id":"cheng_king","label":"周成王","val":20,"group":"person","url":"detail_zhou.html"}],"edges":[{"source":"duke_zhou","target":"cheng_king","label":"辅佐"},{"source":"duke_zhou","target":"ritual_sys","label":"制定"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

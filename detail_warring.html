@@ -226,7 +226,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"warring","label":"春秋战国","val":30,"group":"core","url":"detail_warring.html"},{"id":"iron","label":"铁器牛耕","val":25,"group":"technology","url":"topic_iron_cattle.html"},{"id":"shang","label":"商鞅变法","val":25,"group":"reform","url":"topic_shangyang.html"},{"id":"baijia","label":"百家争鸣","val":25,"group":"culture","url":"topic_baijia.html"},{"id":"confucius","label":"孔子","val":20,"group":"person","url":"topic_confucius.html"},{"id":"qin","label":"秦国","val":20,"group":"state","url":"detail_qin.html"},{"id":"seven","label":"战国七雄","val":20,"group":"states","url":"topic_seven_states.html"}],"edges":[{"source":"warring","target":"iron","label":"技术进步"},{"source":"qin","target":"shang","label":"实行"},{"source":"shang","target":"qin","label":"富国强兵"},{"source":"warring","target":"baijia","label":"思想繁荣"},{"source":"confucius","target":"baijia","label":"代表"},{"source":"seven","target":"warring","label":"战国格局"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -248,3 +248,4 @@
 </body>
 
 </html>
+

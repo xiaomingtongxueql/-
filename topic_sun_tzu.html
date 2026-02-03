@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"百家争鸣","url":"topic_baijia.html"},{"text":"春秋战国","url":"detail_warring.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"sunwu","label":"孙武","val":30,"group":"core","url":"topic_sun_tzu.html"},{"id":"book_art","label":"孙子兵法","val":25,"group":"book","url":"topic_sun_tzu.html"},{"id":"military_school","label":"兵家","val":20,"group":"school","url":"topic_baijia.html"}],"edges":[{"source":"sunwu","target":"book_art","label":"撰写"},{"source":"sunwu","target":"military_school","label":"鼻祖"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -172,7 +172,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"surplus_core","label":"剩余产品","val":35,"group":"core","url":"topic_surplus.html"},{"id":"pottery","label":"陶器","val":25,"group":"tech","url":"topic_pottery.html"},{"id":"granary","label":"粮仓","val":25,"group":"tech","url":"topic_granary.html"},{"id":"special","label":"社会分工","val":30,"group":"impact","url":"topic_job_specialization.html"},{"id":"priest","label":"祭司阶层","val":20,"group":"class","url":"topic_priest.html"}],"edges":[{"source":"surplus_core","target":"pottery","label":"需要"},{"source":"surplus_core","target":"granary","label":"储存"},{"source":"surplus_core","target":"special","label":"供养"},{"source":"special","target":"priest","label":"产生"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

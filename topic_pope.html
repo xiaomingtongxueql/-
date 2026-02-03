@@ -153,7 +153,7 @@
     <script id="data-keywords" type="application/json">[{"text":"基督教会","url":"topic_church.html"},{"text":"中世纪欧洲","url":"detail_medieval_europe.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"pope","label":"教皇","val":30,"group":"core","url":"topic_pope.html"},{"id":"gregory_vii","label":"格里高利七世","val":25,"group":"person","url":"topic_pope.html"},{"id":"canossa","label":"卡诺莎之辱","val":20,"group":"event","url":"topic_pope.html"}],"edges":[{"source":"pope","target":"gregory_vii","label":"代表"},{"source":"gregory_vii","target":"canossa","label":"胜利"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

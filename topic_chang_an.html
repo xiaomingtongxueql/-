@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"唐朝","url":"detail_tang.html"},{"text":"玄奘","url":"topic_xuanzang.html"},{"text":"遣唐使","url":"topic_envoys.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"chang_an","label":"长安城","val":30,"group":"core","url":"topic_chang_an.html"},{"id":"fangshi","label":"坊市制","val":25,"group":"system","url":"topic_chang_an.html"},{"id":"silk_road","label":"丝绸之路","val":25,"group":"route","url":"topic_chang_an.html"},{"id":"qujiang","label":"曲江池","val":20,"group":"place","url":"topic_chang_an.html"}],"edges":[{"source":"chang_an","target":"fangshi","label":"布局"},{"source":"chang_an","target":"silk_road","label":"起点"},{"source":"chang_an","target":"qujiang","label":"名胜"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

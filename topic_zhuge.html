@@ -161,7 +161,7 @@
     <script id="data-keywords" type="application/json">[{"text":"刘备","url":"topic_liubei.html"},{"text":"三国","url":"detail_three_kingdoms.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"kongming","label":"诸葛亮","val":30,"group":"core","url":"topic_zhuge.html"},{"id":"northern_expeditions","label":"北伐","val":25,"group":"event","url":"topic_zhuge.html"},{"id":"loyalty","label":"鞠躬尽瘁","val":20,"group":"concept","url":"topic_zhuge.html"}],"edges":[{"source":"kongming","target":"northern_expeditions","label":"发动"},{"source":"kongming","target":"loyalty","label":"象征"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -197,3 +197,4 @@
 </body>
 
 </html>
+

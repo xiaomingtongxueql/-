@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -210,7 +210,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"zhenghe","label":"郑和","val":35,"group":"core","url":"topic_zheng_he.html"},{"id":"ming","label":"明朝","val":25,"group":"dynasty","url":"detail_ming.html"},{"id":"chengzu","label":"明成祖","val":25,"group":"emperor","url":"topic_ming_chengzu.html"},{"id":"ship","label":"宝船","val":20,"group":"tech","url":"topic_baochuan.html"},{"id":"tribute","label":"朝贡体系","val":20,"group":"system","url":"topic_tribute_system.html"},{"id":"africa","label":"东非","val":15,"group":"location","url":"topic_east_africa.html"}],"edges":[{"source":"zhenghe","target":"ming","label":"效忠"},{"source":"chengzu","target":"zhenghe","label":"派遣"},{"source":"zhenghe","target":"ship","label":"驾驶"},{"source":"zhenghe","target":"tribute","label":"建立"},{"source":"zhenghe","target":"africa","label":"到达"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

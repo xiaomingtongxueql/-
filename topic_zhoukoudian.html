@@ -243,7 +243,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"zhou_core","label":"周口店","val":30,"group":"core","url":"topic_zhoukoudian.html"},{"id":"peking","label":"北京人","val":25,"group":"occupant","url":"detail_primitive.html"},{"id":"upper","label":"山顶洞人","val":15,"group":"occupant","url":"topic_upper_cave_man.html"},{"id":"discovery","label":"1921年发现","val":10,"group":"event","url":"#"}],"edges":[{"source":"peking","target":"zhou_core","label":"主要居住者"},{"source":"upper","target":"zhou_core","label":"晚期居住者"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

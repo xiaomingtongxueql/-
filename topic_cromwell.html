@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -205,7 +205,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"cromwell","label":"克伦威尔","val":35,"group":"core","url":"topic_cromwell.html"},{"id":"charles1","label":"查理一世","val":30,"group":"person","url":"topic_charles1.html"},{"id":"protectorate","label":"护国政治","val":25,"group":"event","url":"topic_uk_rev.html"},{"id":"new_model_army","label":"新模范军","val":25,"group":"org","url":"topic_uk_rev.html"},{"id":"navigation_act","label":"航海条例","val":20,"group":"document","url":"topic_british_empire.html"}],"edges":[{"source":"cromwell","target":"charles1","label":"处死"},{"source":"cromwell","target":"protectorate","label":"建立"},{"source":"cromwell","target":"new_model_army","label":"统帅"},{"source":"cromwell","target":"navigation_act","label":"颁布"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

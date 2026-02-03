@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"教皇","url":"topic_pope.html"},{"text":"中世纪欧洲","url":"detail_medieval_europe.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"crusades","label":"十字军东征","val":30,"group":"core","url":"topic_crusades.html"},{"id":"urban_ii","label":"乌尔班二世","val":25,"group":"person","url":"topic_crusades.html"},{"id":"saladin","label":"萨拉丁","val":20,"group":"person","url":"topic_crusades.html"}],"edges":[{"source":"urban_ii","target":"crusades","label":"号召"},{"source":"saladin","target":"crusades","label":"对抗"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

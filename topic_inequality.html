@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -173,7 +173,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"ineq_core","label":"阶级分化","val":35,"group":"core","url":"topic_inequality.html"},{"id":"surplus","label":"剩余产品","val":25,"group":"cause","url":"topic_surplus.html"},{"id":"state","label":"国家","val":30,"group":"result","url":"topic_state_origin.html"},{"id":"slave","label":"奴隶制","val":20,"group":"type","url":"topic_slavery.html"},{"id":"gender","label":"父权制","val":20,"group":"type","url":"topic_patriarchy.html"}],"edges":[{"source":"surplus","target":"ineq_core","label":"基础"},{"source":"ineq_core","target":"state","label":"制度化"},{"source":"ineq_core","target":"slave","label":"极端形式"},{"source":"ineq_core","target":"gender","label":"表现"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

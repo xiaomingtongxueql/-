@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"屋大维","url":"topic_augustus.html"},{"text":"古罗马","url":"detail_rome.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"caesar_hero","label":"恺撒","val":30,"group":"core","url":"topic_caesar.html"},{"id":"gallic_war","label":"高卢战争","val":25,"group":"event","url":"topic_caesar.html"},{"id":"rubicon_crossing","label":"卢比孔河","val":25,"group":"event","url":"topic_caesar.html"}],"edges":[{"source":"caesar_hero","target":"gallic_war","label":"发动"},{"source":"caesar_hero","target":"rubicon_crossing","label":"跨越"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

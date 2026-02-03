@@ -157,7 +157,7 @@
     <script id="data-keywords" type="application/json">[{"text":"宋朝","url":"detail_song.html"},{"text":"长安城","url":"topic_chang_an.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"commerce","label":"商业革命","val":30,"group":"core","url":"topic_commerce.html"},{"id":"jiaozi","label":"交子","val":25,"group":"object","url":"topic_commerce.html"},{"id":"shibosi","label":"市舶司","val":25,"group":"system","url":"topic_commerce.html"},{"id":"wazi","label":"瓦子勾栏","val":20,"group":"place","url":"topic_commerce.html"}],"edges":[{"source":"commerce","target":"jiaozi","label":"产物"},{"source":"commerce","target":"shibosi","label":"管理"},{"source":"commerce","target":"wazi","label":"娱乐"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -193,3 +193,4 @@
 </body>
 
 </html>
+

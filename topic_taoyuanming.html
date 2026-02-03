@@ -161,7 +161,7 @@
     <script id="data-keywords" type="application/json">[{"text":"王羲之","url":"topic_wangxizhi.html"},{"text":"魏晋南北朝","url":"detail_weijin.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"tao_yuanming","label":"陶渊明","val":30,"group":"core","url":"topic_taoyuanming.html"},{"id":"rural_poetry","label":"田园诗","val":25,"group":"genre","url":"topic_taoyuanming.html"},{"id":"peach_blossom","label":"桃花源","val":20,"group":"concept","url":"topic_taoyuanming.html"},{"id":"nobility","label":"不折腰","val":20,"group":"spirit","url":"topic_taoyuanming.html"}],"edges":[{"source":"tao_yuanming","target":"rural_poetry","label":"开创"},{"source":"tao_yuanming","target":"peach_blossom","label":"向往"},{"source":"tao_yuanming","target":"nobility","label":"坚持"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -197,3 +197,4 @@
 </body>
 
 </html>
+

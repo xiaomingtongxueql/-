@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -257,7 +257,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"navi","label":"新航路开辟","x":50,"y":50,"type":"core","url":"detail_new_navigation.html"},{"id":"col","label":"哥伦布(美洲)","x":20,"y":30,"type":"normal","url":"topic_columbus.html"},{"id":"mag","label":"麦哲伦(环球)","x":80,"y":30,"type":"normal","url":"topic_magellan.html"},{"id":"dama","label":"达伽马(印度)","x":50,"y":80,"type":"sub"},{"id":"link","label":"全球联系建立","x":85,"y":70,"type":"sub","url":"topic_global_link.html"}],"edges":[{"source":"navi","target":"col"},{"source":"navi","target":"mag"},{"source":"navi","target":"dama"},{"source":"navi","target":"link"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const graphData = JSON.parse(document.getElementById('data-graph').textContent || '{}');
         if (typeof KnowledgeGraphEngine !== 'undefined') {

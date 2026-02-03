@@ -171,7 +171,7 @@
     <script id="data-keywords" type="application/json">[{"text":"文艺复兴","url":"detail_renaissance.html"},{"text":"人文主义","url":"topic_humanism.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"reformation","label":"宗教改革","val":30,"group":"core","url":"topic_reformation.html"},{"id":"luther","label":"马丁·路德","val":25,"group":"person","url":"topic_reformation.html"},{"id":"calvin","label":"加尔文","val":25,"group":"person","url":"topic_reformation.html"},{"id":"faith","label":"因信称义","val":20,"group":"concept","url":"topic_reformation.html"}],"edges":[{"source":"luther","target":"reformation","label":"发起"},{"source":"luther","target":"faith","label":"提出"},{"source":"calvin","target":"reformation","label":"激进派"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {

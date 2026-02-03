@@ -161,7 +161,7 @@
     <script id="data-keywords" type="application/json">[{"text":"王羲之","url":"topic_wangxizhi.html"},{"text":"魏晋南北朝","url":"detail_weijin.html"}]</script>
     <script id="data-graph" type="application/json">{"nodes":[{"id":"gu_kaizhi","label":"顾恺之","val":30,"group":"core","url":"topic_guokaizhi.html"},{"id":"luoshen_scroll","label":"洛神赋图","val":25,"group":"artwork","url":"topic_guokaizhi.html"},{"id":"spirit_resonance","label":"以形写神","val":20,"group":"theory","url":"topic_guokaizhi.html"}],"edges":[{"source":"gu_kaizhi","target":"luoshen_scroll","label":"绘"},{"source":"gu_kaizhi","target":"spirit_resonance","label":"提出"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
@@ -197,3 +197,4 @@
 </body>
 
 </html>
+

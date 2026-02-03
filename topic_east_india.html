@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -204,7 +204,7 @@
     <script id="data-graph"
         type="application/json">{"nodes":[{"id":"eic","label":"东印度公司","val":35,"group":"core","url":"topic_east_india.html"},{"id":"britain","label":"英国","val":30,"group":"sponsor","url":"topic_birtish_empire.html"},{"id":"india","label":"印度殖民地","val":25,"group":"location","url":"topic_india_colony.html"},{"id":"opium","label":"鸦片贸易","val":25,"group":"event","url":"topic_opium_war.html"},{"id":"clive","label":"克莱武","val":20,"group":"person","url":"topic_clive.html"},{"id":"stock","label":"股份制","val":20,"group":"concept","url":"topic_joint_stock.html"}],"edges":[{"source":"eic","target":"britain","label":"特许"},{"source":"eic","target":"india","label":"统治"},{"source":"eic","target":"opium","label":"走私"},{"source":"clive","target":"eic","label":"征服孟加拉"},{"source":"stock","target":"eic","label":"制度创新"}]}</script>
     <script>
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') { lucide.createIcons(); }
         const keywords = JSON.parse(document.getElementById('data-keywords').textContent || '[]');
         const listContainer = document.getElementById('keywords-list');
         keywords.forEach(kw => {
