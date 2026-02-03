@@ -1,0 +1,26 @@
+node_modules
+.git
+.vercel
+dist
+.vscode
+.idea
+*.log
+*.bak
+
+# 开发工具和临时文件
+audit_*.js
+audit_*.txt
+fix_*.js
+fix_*.py
+fix_*.ps1
+sync_*.js
+sync_*.txt
+*_report.json
+*_report.txt
+missing_topics*.txt
+found_graphs.txt
+all_details.txt
+test_*.py
+add_graphids.py
+remove_topic_videos.py
+manage_visuals.js
