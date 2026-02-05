@@ -78,6 +78,11 @@
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
         body {
             margin: 0;
             background-color: var(--bg-base);
@@ -872,22 +877,12 @@
                 });
 
 
-                // Mock Data (fallback)
-                const MOCK_DATA = [
-                    { id: '1', year: -221, display: 'BC 221', title: '秦灭六国', desc: '秦王嬴政统一六国，建立中国历史上第一个大一统王朝，废分封、立郡县。', cat: 'china', link: 'detail_qin.html' },
-                    { id: '2', year: 1765, display: 'AD 1765', title: '工业革命', desc: '珍妮纺纱机的发明标志着第一次工业革命的开始，人类进入蒸汽时代。', cat: 'world', link: 'detail_industrial_rev_1.html' },
-                    { id: '3', year: 1911, display: 'AD 1911', title: '辛亥革命', desc: '武昌起义爆发，推翻了清朝统治，结束了中国两千多年的封建帝制。', cat: 'china', link: 'detail_xinhai.html' },
-                    { id: '4', year: 1969, display: 'AD 1969', title: '人类登月', desc: '阿波罗11号成功登陆月球，阿姆斯特朗迈出了人类的一大步。', cat: 'world', link: '#' },
-                    { id: '5', year: 1978, display: 'AD 1978', title: '改革开放', desc: '十一届三中全会召开，中国开始实行对内改革、对外开放的政策。', cat: 'china', link: 'detail_reform_open.html' },
-                    { id: '6', year: 1991, display: 'AD 1991', title: '苏联解体', desc: '冷战结束的标志性事件，世界格局发生根本性转变。', cat: 'world', link: 'detail_ussr_fall.html' }
-                ];
-
                 // Get data
                 function getData() {
                     if (window.RAW_DATA && window.RAW_DATA.events && window.RAW_DATA.events.length > 0) {
                         return window.RAW_DATA.events;
                     }
-                    return MOCK_DATA;
+                    return [];
                 }
 
                 let currentMode = 'compare';
@@ -958,6 +953,14 @@
                 // Render cards
                 function render() {
                     const data = getData();
+                    if (data.length === 0) {
+                        // Don't render "No records" during initial load if we are strictly waiting for data
+                        // But getData returns [] if no data.
+                        // We rely on tryInit to handle the "Error" state if timeout occurs.
+                        // But if render is called manually (e.g. search), [] is valid "no results".
+                        // However, during init, we won't call render() until we have data or timeout.
+                    }
+
                     const sorted = [...data].sort((a, b) => a.year - b.year);
 
                     let filtered = sorted;
@@ -1040,8 +1043,37 @@
                     });
                 });
 
-                // Initial render
-                render();
+                // Initial render with Retry Mechanism
+                function tryInit(retries = 0) {
+                    if (window.RAW_DATA) {
+                        render();
+                    } else if (retries < 20) {
+                        // Retry up to 20 times (10 seconds total: 20 * 500ms)
+                        // This gives ample time for large JS files to parse on mobile
+                        setTimeout(() => tryInit(retries + 1), 500);
+                    } else {
+                        // Failed to load
+                        console.error('Failed to load real data after 10 seconds.');
+                        cardsContainer.innerHTML = `
+                            <div class="empty-state" style="color: #ef4444;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto 16px; opacity: 0.8;">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                </svg>
+                                <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 8px;">数据加载失败</p>
+                                <p>可能是网络原因导致数据文件未能下载，<br>请检查网络连接或刷新页面重试。</p>
+                                <div style="margin-top: 24px;">
+                                    <button onclick="location.reload()" style="padding: 10px 24px; border-radius: 999px; background: var(--text-primary); color: var(--bg); border: none; font-weight:500; cursor: pointer; transition: opacity 0.2s;">
+                                        刷新页面
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                    }
+                }
+
+                tryInit();
 
                 // 保存滚动位置并导航
                 window.saveScrollAndNavigate = function (event, link) {
