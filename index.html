@@ -1044,45 +1044,49 @@
                     });
                 });
 
-                // Initial render with Fetch API
+                // Initial render with Dynamic Script Loader (Compatibility Mode)
                 function initApp() {
-                    console.log('Fetching data...');
-                    // Cache-busting with timestamp
-                    fetch('data/history.json?t=' + Date.now())
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Network response was not ok: ' + response.statusText);
-                            }
-                            return response.json();
-                        })
-                        .then(data => {
-                            if (data && data.events) {
-                                window.RAW_DATA = data; // Keep compatibility
-                                render();
-                            } else {
-                                throw new Error('Invalid data format');
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Fetch failed:', error);
-                            // Failed to load
-                            cardsContainer.innerHTML = `
-                                <div class="empty-state" style="color: #ef4444;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto 16px; opacity: 0.8;">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <line x1="12" y1="8" x2="12" y2="12"></line>
-                                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                                    </svg>
-                                    <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 8px;">数据加载失败</p>
-                                    <p>无法获取最新数据（${error.message}）。<br>请检查网络连接或刷新页面重试。</p>
-                                    <div style="margin-top: 24px;">
-                                        <button onclick="location.reload()" style="padding: 10px 24px; border-radius: 999px; background: var(--text-primary); color: var(--bg); border: none; font-weight:500; cursor: pointer; transition: opacity 0.2s;">
-                                            刷新页面
-                                        </button>
-                                    </div>
-                                </div>
-                            `;
-                        });
+                    console.log('Loading data script...');
+
+                    const script = document.createElement('script');
+                    // Cache-busting with timestamp to prevent "Moon Landing" phantom data
+                    script.src = 'js/data-store.js?v=' + Date.now();
+                    script.async = true;
+
+                    script.onload = () => {
+                        console.log('Data script loaded.');
+                        if (window.RAW_DATA && window.RAW_DATA.events) {
+                            render();
+                        } else {
+                            handleError(new Error('Data loaded but window.RAW_DATA is invalid'));
+                        }
+                    };
+
+                    script.onerror = (e) => {
+                        console.error('Script load failure:', e);
+                        handleError(new Error('Network or Script Error'));
+                    };
+
+                    document.body.appendChild(script);
+                }
+
+                function handleError(error) {
+                    cardsContainer.innerHTML = `
+                        <div class="empty-state" style="color: #ef4444;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto 16px; opacity: 0.8;">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                            <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 8px;">数据加载失败</p>
+                            <p>无法加载数据脚本（${error.message}）。<br>请检查网络连接或刷新页面重试。</p>
+                            <div style="margin-top: 24px;">
+                                <button onclick="location.reload()" style="padding: 10px 24px; border-radius: 999px; background: var(--text-primary); color: var(--bg); border: none; font-weight:500; cursor: pointer; transition: opacity 0.2s;">
+                                    刷新页面
+                                </button>
+                            </div>
+                        </div>
+                    `;
                 }
 
                 initApp();
